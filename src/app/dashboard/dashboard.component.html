@@ -1,0 +1,128 @@
+<p-toast position="bottom-center" key="bottomCenterKey" life="9000" [preventOpenDuplicates]="true"></p-toast>
+
+<div class="layout-dashboard">
+  <div class="grid">
+
+    <div class="dashboard-content">
+      <div class="col-12 md:col-12 xl:col-12">
+        <div class="grid">
+
+          <div class="col-12 md:col-12 xl:col-12">
+            <span class="title-page">{{ 'dashboard.title' | translate }}</span>
+          </div>
+
+          <div class="col-12 md:col-12 xl:col-12">
+              <p>
+                Welcome to "PROMISCES DSF", your comprehensive portal dedicated to combating pollution and advancing sustainable practices. Our mission is to support informed decision-making in the prevention and reduction of critical substances in the environment, whether they are persistent, mobile, toxic, or non-toxic. We focus on offering solutions across different stages of the substance life cycle and for various PMT (Persistent, Mobile, and Toxic) groups.
+              </p>
+              <p>
+                Recognizing the diverse challenges faced by stakeholders such as regulators, risk managers, and industry professionals, our platform provides tailored insights and strategies. We emphasize societal implications, including social benefits and environmental impact, to ensure that our approaches align with the broader goal of sustainable development.
+              </p>
+              <p>
+                In an era where human activities increasingly threaten our planet, “PROMISCES DSF” commits to equipping you with the necessary knowledge and tools for safe resource reuse and recovery. Embracing the principles of a circular economy, we aim to foster a transformative shift towards more sustainable and eco-friendly practices.
+              </p>
+
+          </div>
+
+
+          <div class="col-12 md:col-12 xl:col-12" >
+            <div class="title-section">{{ 'features.title' | translate }}</div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- features -->
+    <div class="col-12 md:col-12 xl:col-12" >
+      <div class="grid feature-section">
+          <div class="col feature-section">
+              <div class="card card-feature feature-column">
+                  <a href="javascript:void(0);" (click)="navigateToIdentifier();">
+                    <div class="card-header card-header-feature">
+                        <span>{{ 'features.pmt-identifier-title' | translate }}</span>
+                        <div class="header-buttons">
+                            <i class="pi pi-angle-right"></i>
+                        </div>
+                    </div>
+                  </a>
+                  <div class="overview-content">
+                      <p>{{ 'features.pmt-identifier' | translate }}</p>
+                  </div>
+                  <div class="overview-footer">
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card card-feature">
+                <a href="javascript:void(0);" (click)="navigateToSubstance();">
+                  <div class="card-header card-header-feature">
+                      <span>{{ 'features.search-substance-title' | translate }}</span>
+                      <div class="header-buttons">
+                          <i class="pi pi-angle-right" ></i>
+                      </div>
+                  </div></a>
+                  <div class="overview-content">
+                      <p>{{ 'features.search-substance' | translate }}</p>
+                  </div>
+                  <div class="overview-footer down">
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card card-feature">
+                  <a href="javascript:void(0);" (click)="navigateToAssessment();">
+                  <div class="card-header card-header-feature">
+                      <span>{{ 'features.pmt-assessment-title' | translate }}</span>
+                      <div class="header-buttons">
+                          <i class="pi pi-angle-right"></i>
+                      </div>
+                  </div></a>
+                  <div class="overview-content">
+                      <p>{{ 'features.pmt-assessment' | translate }}</p>
+                  </div>
+                  <div class="overview-footer">
+                  </div>
+              </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-feature">
+              <a href="javascript:void(0);" (click)="navigateToSolution();">
+                <div class="card-header card-header-feature" >
+                    <span>{{ 'features.solution-assessment-title' | translate }}</span>
+                    <div class="header-buttons">
+                        <i class="pi pi-angle-right"></i>
+                    </div>
+                </div></a>
+                <div class="overview-content">
+                    <p>{{ 'features.solution-assessment' | translate }}</p>
+                </div>
+                <div class="overview-footer">
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-feature">
+              <a href="javascript:void(0);" (click)="navigateToStrategy();">
+              <div class="card-header card-header-feature">
+                  <span>{{ 'features.strategies-navigator' | translate }}</span>
+                  <div class="header-buttons"><i class="pi pi-angle-right"></i>
+                  </div>
+              </div></a>
+              <div class="overview-content">
+                  <p>{{ 'features.strategies' | translate }}</p>
+              </div>
+              <div class="overview-footer">
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+</div>

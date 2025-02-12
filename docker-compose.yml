@@ -1,0 +1,81 @@
+version: '3'
+
+networks:
+  docker-service:
+    driver: bridge
+  # proxy-network:
+  #   name: proxy-network
+  #   external: true
+
+services:
+
+  promiscesui:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "8090:80/tcp"
+    container_name: promiscesui
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500M"
+        max-file: "2"
+    networks:
+      - docker-service
+    #  - proxy-network
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    depends_on:
+      - promiscesapi
+
+  promisces-postgres:
+    image: postgres:15
+    container_name: postgres
+    volumes:
+      - ./postgres-data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=promisces
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+    restart: on-failure
+    networks:
+      - docker-service
+    ports:
+      - "5432/tcp"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  promiscesapi:
+    build: ../promisces-backend/promisces-backend/
+    container_name: promiscesapi
+    networks:
+      - docker-service
+    ports:
+      - "7070:8080"
+    depends_on:
+      promisces-postgres:
+        condition: service_healthy
+
+  promiscessubstances:
+    container_name: promiscessubstances
+    build: ../promisces-backend/promisces-backend/src/main/resources/substances/
+    depends_on:
+      promisces-postgres:
+        condition: service_healthy
+      promiscesapi:
+        condition: service_started
+
+volumes:
+  data-volume: {
+    driver: local
+  }

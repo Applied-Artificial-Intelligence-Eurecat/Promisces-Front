@@ -1,0 +1,148 @@
+<div class="grid">
+  <div class="col-12 md:col-12 xl:col-12 flex flex-column">
+    <span class="title-page">{{ 'substance.title' | translate }}</span>
+
+  </div>
+
+  <div class="col-12 md:col-12 xl:col-12">
+    <p>Pollution manifests in numerous forms, from the air we breathe to the oceans that surround us. In this section, we explore various types of pollution: air pollution, water pollution, soil pollution, and more, providing scientific data and real case studies. Importantly, pollution varies with the pollutant substances and their characteristics such as persistence, mobility, and toxicity. This section is linked to a substance search portal page, helping you navigate the complex world of pollutants.</p>
+  </div>
+
+
+  <div class="col-12 md:col-12 xl:col-12">
+    <span class="subtitle-page">{{ 'substance.subtitle' | translate }}</span>
+  </div>
+
+  <div class="col-12 md:col-12 xl:col-12">
+
+    <form [formGroup]="substanceSearchFormGroup" role="form" style="width: 100%;">
+
+          <div class="grid">
+              <div class="col-12 md-12 ">
+                <div class="grid">
+                  <!-- substanceName -->
+                  <div class="field col-3 md-3 field-display-grid">
+                    <label for="substanceName">{{ 'substance.substanceName' | translate }}</label>
+                    <p-autoComplete formControlName="substanceName" [showEmptyMessage]="true"
+                      [suggestions]="filteredSubstanceNames" (completeMethod)="autocompleteSubstancesName()"
+                      [minLength]="3" [style]="{'width':'100%'}"
+                      [placeholder]="'substance.typeName' | translate"></p-autoComplete>
+                  </div>
+                  <!-- substanceInchikey -->
+                  <div class="field col-3 md-3 ">
+                    <label for="inchikey">{{ 'substance.inchikey' | translate }}</label>
+                    <input type="text" pInputText formControlName="inchikey" [placeholder]="'substance.typeInchikey' | translate" class="w-full"/>
+                  </div>
+                  <!-- substanceCasNumber -->
+                  <div class="field col-3 md-3 ">
+                    <label for="substanceCasNumber">{{ 'substance.casNumber' | translate }}</label>
+                    <input type="text" pInputText formControlName="substanceCasNumber" [placeholder]="'substance.typeCasNumber' | translate" class="w-full"/>
+                  </div>
+
+                  <!-- substanceGroup -->
+                  <div class="col-3 md-3 field field-display-grid ">
+                    <label for="substanceGroup">{{ 'substance.substanceGroup' | translate }}</label>
+                    <p-dropdown [options]="substanceGroupOptions" formControlName="substanceGroup" optionLabel="name"
+                      [autoDisplayFirst]="false" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+                  </div>
+
+                  <!-- solutionName -->
+                  <!--<div class="col-4 md-4 field field-display-grid ">
+                      <label for="solutionName">{{ 'substance.solutionName' | translate }}</label>
+                      <input type="text" pInputText formControlName="solutionName"
+                        class="w-full"/>
+                  </div>-->
+
+                  <!-- prediction -->
+                  <div class="col-2 md-2 field ">
+                    <label for="prediction">{{ 'substance.prediction' | translate }}</label><br>
+                    <p-inputSwitch formControlName="prediction"></p-inputSwitch>
+                </div>
+                <!-- experimental -->
+                <div class="col-2 md-2 field ">
+                  <label for="experimental">{{ 'substance.experimental' | translate }}</label><br>
+                  <p-inputSwitch formControlName="experimental"></p-inputSwitch>
+              </div>
+                  <!-- ceRoute -->
+                  <div class="col-4 md-4 field field-display-grid ">
+                    <label for="ceRoute">{{ 'substance.ceRoute' | translate }}
+                      <i class="pi pi-info-circle" [pTooltip]="'substance.ceRouteDescription' | translate" tooltipPosition="top"></i>
+                    </label>
+                    <p-dropdown [options]="ceRouteOptions" formControlName="ceRoute" optionLabel="description"
+                      [autoDisplayFirst]="false" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+                  </div>
+                  <!-- chemicalClass -->
+                  <div class="col-4 md-4 field field-display-grid ">
+                      <label for="chemicalClass">{{ 'substance.chemicalClass' | translate }}</label>
+                      <p-dropdown [options]="chemicalClassOptions" formControlName="chemicalClass" optionLabel="name"
+                        [autoDisplayFirst]="false" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+                  </div>
+                  <!-- sectorOfUse -->
+                  <div class="col-8 md-8 field field-display-grid ">
+                      <label for="sectorOfUse">{{ 'substance.sectorOfUse' | translate }}</label>
+                      <p-dropdown [options]="sectorOfUseOptions" formControlName="sectorOfUse" optionLabel="name"
+                        [autoDisplayFirst]="false" [showClear]="true" [style]="{'width':'100%'}"></p-dropdown>
+                  </div>
+                  <!-- strategy -->
+                  <!--<div class="col-4 md-4 field ">
+                      <label for="strategy">{{ 'substance.strategy' | translate }}</label>
+                      <input type="text" pInputText formControlName="strategy"
+                        [placeholder]=" 'substance.introduceStrategy' | translate " class="w-full"/>
+                  </div>-->
+                </div>
+              </div>
+
+            <div class="col-0 md:col-9 xl:col-9">
+              <div class="field">
+                <label for="viewSelected" >{{ 'substance.changeView' | translate }}</label>
+                <p-dropdown [options]="viewOptions" [(ngModel)]="viewSelected" [ngModelOptions]="{standalone: true}"
+                class="ml-2 text-base"
+                optionLabel="label" optionValue="value" (onChange)="onChangeViewSelection($event.value)"></p-dropdown>
+              </div>
+            </div>
+
+            <div class="col-12 md:col-3 xl:col-3">
+              <div class="grid">
+                    <div class="col-6 md:col-6 xl:col-6">
+                      <button pButton type="button" label="{{ 'button.reset' | translate }}"
+                      class="p-button-secondary"
+                        (click)="resetFilters()" style="width: 100%;"></button>
+                    </div>
+
+                    <div class="col-6 md:col-6 xl:col-6">
+
+                      <button pButton type="button" label="{{ 'button.search' | translate }}"
+                        class="p-button-primary"
+                          (click)="buildFilterForSubstances()" style="width: 100%;"></button>
+                    </div>
+              </div>
+            </div>
+          </div>
+
+
+    </form>
+
+  </div>
+
+ <!--<router-outlet></router-outlet>-->
+ <div class="col-12 md:col-12 xl:col-12">
+
+  <ng-content *ngIf="viewSelected==SubstanceViewTypeEnum.list then listView else graphView"></ng-content>
+  <ng-template #listView>
+    <app-substance-list [substanceFilters]="substanceSearchFilters" [viewSelected]="viewSelected" [sortFieldSelected]="sortFieldSelected"></app-substance-list>
+  </ng-template>
+  <ng-template #graphView>
+    <app-substance-graph [substanceFilters]="substanceSearchFilters" [viewSelected]="viewSelected"></app-substance-graph>
+  </ng-template>
+  <!--<div *ngIf="showListView" class="col-12 md:col-12 xl:col-12">
+    <app-substance-list [substanceResult]="substanceResult"></app-substance-list>
+  </div>-->
+
+
+</div>
+    <!-- chart-->
+    <!--<div *ngIf="!showListView" class="col-12 md:col-12 xl:col-12">
+      <app-substance-cube-chart></app-substance-cube-chart>
+    </div>-->
+</div>
+

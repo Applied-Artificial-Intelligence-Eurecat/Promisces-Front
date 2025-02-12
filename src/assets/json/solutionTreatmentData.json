@@ -1,0 +1,119 @@
+{
+  "content": [
+    {
+      "number": "12",
+      "targetMedia": "Water",
+      "targetCompounds": "PFAS and iPMTs",
+      "categories": [
+        "Destruction-Chemical treatment"
+      ],
+      "technologies": [
+        "Superior oxidation rates lead to a significant improvement in the breakdown of highly persistent contaminants by enhancing the generation of hydroxyl radicals."
+      ],
+      "trl": "TRL 6",
+      "remediation":[
+        {"name": "2-aminophenol", "values": [99]},
+        {"name": "Carbendazim", "values": [99]},
+        {"name": "Terbutryn", "values": [99]},
+        {"name": "Venlafaxine", "values": [99]},
+        {"name": "Carbamazepine", "values": [86]},
+        {"name": "Ofloxacin", "values": [85]},
+        {"name": "Caffeine", "values": [72]},
+        {"name": "Flecainide", "values": [62]},
+        {"name": "Diuron", "values": [50]},
+        {"name": "Benzotriazole", "values": [45]},
+        {"name": "Triethyl phosphate", "values": [33]},
+        {"name": "Temazepam", "values": [25]}
+      ],
+      "cost": "1.02",
+      "energy": "5.10"
+    },
+    {
+      "number": "7",
+      "targetMedia": "Water",
+      "targetCompounds": "PFAS and iPMTs",
+      "categories": [
+        "Biological treatment "
+      ],
+      "technologies": [
+        "More sustainable/eco-friendly approach, contributing climate change mitigation by carbon sequestration.",
+        "Long-term stability and low maintenance, making them a reliable and environmentally friendly solution.",
+        "Low power consumption."
+      ],
+      "trl": "TRL 6",
+      "remediation":[
+        {"name": "2-aminophenol", "values": []},
+        {"name": "Carbendazim", "values": []},
+        {"name": "Terbutryn", "values": []},
+        {"name": "Venlafaxine", "values": []},
+        {"name": "Carbamazepine", "values": [9]},
+        {"name": "Ofloxacin", "values": [26]},
+        {"name": "Caffeine", "values": [31]},
+        {"name": "Flecainide", "values": [41]},
+        {"name": "Diuron", "values": [30]},
+        {"name": "Benzotriazole", "values": [0]},
+        {"name": "Triethyl phosphate", "value": []},
+        {"name": "Temazepam", "values": [14]}
+      ],
+      "cost": "0.18",
+      "energy": "0.89"
+    },
+    {
+      "number": "3",
+      "targetMedia": "Landfill Leachate",
+      "targetCompounds": "PFAS and iPMTs",
+      "categories": [
+        "Physical separation"
+      ],
+      "technologies": [
+        "Development of advanced treatments train to completely remove PFAS from landfill leachate."
+      ],
+      "trl": "9",
+      "remediation":[
+        {"name": "PFBA", "values": [81, 95]},
+        {"name": "PFBS", "values": [74, 94]},
+        {"name": "PFHpA", "values": [90, 97]},
+        {"name": "PFHxA", "values": [87, 98]},
+        {"name": "PFOA", "values": [89, 98]},
+        {"name": "PFPeA", "values": [82, 92]}
+      ],
+      "cost": "3.5",
+      "energy": "3"
+    },
+    {
+      "number": "5",
+      "targetMedia": "1WWTP Sludge, 2LLTP Sludge, 3NF/RO dried concentrate",
+      "targetCompounds": "PFAS",
+      "categories": [
+        "Physical-Chemical Destruction"
+      ],
+      "technologies": [
+        "Development of Co-Pyrolysis treatment of LLTP sludge and NF/RO dried concentrate for a complete elimination of PFAS compounds. It is a compact technology that can be operated in site at the LLTP."
+      ],
+      "trl": "7",
+      "remediation": [
+      ],
+      "cost": "",
+      "energy": "16"
+    },
+    {
+      "number": "2",
+      "targetMedia": "Dredged Sediments",
+      "targetCompounds": "PFAS",
+      "categories": [
+        "Physical-Chemical separation"
+      ],
+      "technologies": [
+        "Soil/Sediment washing treatment targeted to remove PFAS."
+      ],
+      "trl": "7",
+      "remediation": [
+        {"name": "PFBA", "values": [0]},
+        {"name": "PFOA", "values": [38]},
+        {"name": "PFOS", "values": [73, 80]}
+      ],
+      "cost": "",
+      "energy": ""
+    }
+  ]
+}

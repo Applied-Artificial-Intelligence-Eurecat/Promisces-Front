@@ -1,0 +1,35 @@
+<div *ngIf="preparingData">
+  <p-progressSpinner [style]="{width: '50px', height: '50px'}"
+    styleClass="custom-spinner" strokeWidth="2" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>
+
+<!--<p>Range of results: XX / XXX / XXXX</p>-->
+<div class="formgroup-inline flex justify-content-between flex-wrap">
+  <div class="field">
+    <p>
+      {{'substance.rangeOfResults' | translate}} {{first}} - {{last}} of {{totalRecords}}
+    </p>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="col-12 md:col-12 xl:col-12 flex ">
+    <ng-content *ngIf="viewSelected==SubstanceViewTypeEnum.graph then cubeGraph else barGraph"></ng-content>
+    <ng-template #cubeGraph>
+      <app-substance-cube-chart [substances]="substances"></app-substance-cube-chart>
+    </ng-template>
+    <ng-template #barGraph>
+      <app-substance-search-bar-chart [substances]="substances" [viewSelected]="viewSelected"></app-substance-search-bar-chart>
+    </ng-template>
+  </div>
+  <div class="col-6 md:col-6 xl:col-6 flex align-items-end ">
+      <div style="text-align:left; padding-bottom: 0rem;">
+          <!--<p-button type="button" label="{{'button.viewAsHeatmap' | translate}}"
+              styleClass="p-button p-button-primary"></p-button> <br><br>-->
+          <button pButton type="button" label="{{ 'button.viewAsPMTList' | translate }}"
+             styleClass="p-button p-button-primary" (click)="substanceSearch.onChangeViewSelection(SubstanceViewTypeEnum.list)"></button>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,85 @@
+<div class="grid" >
+
+  <div class="col-12 md:col-12 xl:col-12">
+    <div class="flex justify-content-between align-items-center">
+      <p><b>{{ 'substance.resultsForSubstances' | translate }}</b></p>
+      <div>
+        <button pButton type="button" label="{{ 'button.downloadCsvComma' | translate }}" icon="pi pi-file" class="p-button-secondary mr-2" (click)="downloadCsv(true)"></button>
+        <button pButton type="button" label="{{ 'button.downloadCsvSemicolon' | translate }}" icon="pi pi-file" class="p-button-secondary" (click)="downloadCsv(false)"></button>
+      </div>
+    </div>
+
+<!--selectionMode="single" styleClass="p-datatable-gridlines"-->
+    <p-table #tlist [value]="substancesList" dataKey="id" [rowHover]="true" appendTo="body"
+      [scrollable]="true" [loading]="loading" [rowHover]="true" [paginator]="false"
+      [showCurrentPageReport]="false"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [rows]="environment.pagination.items_per_page" ><!--(onRowSelect)="showSubstanceDetailDialog($substance)" (onLazyLoad)="onLazyLoad($event)"-->
+      <ng-template pTemplate="caption">
+        <div class="formgroup-inline flex justify-content-between flex-wrap">
+
+          <!--<div class="field">
+            <p>
+              {{'substance.substances' | translate}} {{first}} - {{last}} of {{totalRecords}}
+            </p>
+          </div>-->
+          <div class="field">
+            <p>
+              {{'substance.rangeOfResults' | translate}} {{first}} - {{last}} of {{totalRecords}}
+            </p>
+          </div>
+
+          <!--<div class="field">
+            <label for="sortByField" >{{ 'substance.sortBy' | translate }}</label>
+            <p-dropdown [options]="sortFieldOptions" [(ngModel)]="sortFieldSelected" class="text-base"
+              [showClear]="true" placeholder="Select"
+              (onChange)="substanceSearch.onChangeSortFieldSelection($event.value)"></p-dropdown>
+          </div>-->
+
+          <div class="field">
+            <p-paginator (onPageChange)="onPageChange($event)"
+              [rows]="environment.pagination.items_per_page"
+              [totalRecords]="totalRecords"
+              [showJumpToPageDropdown]="true" [showPageLinks]="false" [showCurrentPageReport]="false"
+              currentPageReportTemplate="Pag {currentPage}/{totalPages}"></p-paginator>
+          </div>
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-substance>
+          <tr>
+              <th>{{ 'substance.name' | translate }}</th><!--{{first}} - {{last}}-->
+              <!--<th>{{ 'substance.solutionType' | translate }}</th>
+              <th>{{ 'substance.solutionName' | translate }}</th>-->
+              <th >{{ 'substance.casNumber' | translate }}</th>
+          </tr>
+
+
+      </ng-template>
+      <ng-template pTemplate="body" let-substance>
+          <tr [pSelectableRow]="substance" (click)="substanceDetailComponent.showSubstanceDetailDialog(substance.substanceName)">
+              <td style="line-break: loose; width: 35rem;">{{substance.substanceName}}</td>
+              
+              <td>
+                <div class="flex justify-content-between flex-wrap">
+
+                  <div>{{substance.casNumber ? substance.casNumber : '-'}}</div>
+
+                  <div>
+                    <p-button icon="pi pi-angle-right" styleClass="p-button-rounded p-button-text"
+                    [ngStyle]="{ 'margin-right': '0.5rem' }"></p-button>
+                    <!--(onClick)="showSubstanceDetailDialog(substance)"-->
+                  </div>
+                </div>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="2">{{ 'no-records-found' | translate }}</td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

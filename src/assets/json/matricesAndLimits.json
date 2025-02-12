@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+      "matrix": "Surface water",
+      "limit": 8
+    },
+    {
+      "matrix": "Sediments",
+      "limit": 2
+    },
+    {
+      "matrix": "Sewage sludge",
+      "limit": null
+    },
+    {
+      "matrix": "Waste water",
+      "limit": null
+    },
+    {
+      "matrix": "Ground water",
+      "limit": 5
+    }
+  ]
+}

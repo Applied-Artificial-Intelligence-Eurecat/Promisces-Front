@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+        "name": "route_a",
+        "description": "Route A: Semi-closed water cycle for drinking water supply"
+    },
+    {
+        "name": "route_b",
+        "description": "Route B: Wastewater reuse for agricultural irrigation"
+    },
+    {
+        "name": "route_c",
+        "description": "Route C: Nutrient and energy recovery from treated sludge for fertilizers"
+    },
+    {
+        "name": "route_d",
+        "description": "Route D: Material recovery from dredged sediment eco-materials"
+    },
+    {
+        "name": "route_e",
+        "description": "Route E: Groundwater and soil remediation to protect the water cycle"
+    }
+  ]
+}

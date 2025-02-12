@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+      "id": "REACH-A",
+      "name": "REACH-A",
+      "description": "PMT/vPvM substance  registered under REACH (or transformation products thereof) at tonnages > 10 tpa"
+    },
+    {
+      "id": "REACH-B",
+      "name": "REACH-B",
+      "description": "REACH registered substances registered under REACH (or transformation products thereof) at tonnages < 10 tpa"
+    },
+    {
+      "id": "REACH-B2",
+      "name": "REACH-B2",
+      "description": "REACH registered substances registered under REACH (or transformation products thereof) at tonnages < 10 tpa"
+    },
+    {
+      "id": "REACH-C",
+      "name": "REACH-C",
+      "description": "PMT/vPvM substances registered under REACH that are already subject to existing EU chemical or water regulations"
+    }
+  ]
+}

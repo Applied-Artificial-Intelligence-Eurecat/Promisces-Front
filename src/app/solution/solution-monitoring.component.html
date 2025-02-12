@@ -1,0 +1,504 @@
+
+<div class="col-12 md-12">
+  <p>
+    <b>Monitoring</b>
+  </p>
+  <p>
+    The information supplied on monitoring in this section complies with relevant EU directives,
+    strategies and action plans at the time of writing (December 2024). An overview of the current
+    regulatory context, challenges and identified needs is available in
+    <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10&sort=newest">
+    Deliverable 5.8 Modular recommendations for evaluation and implementation of relevant EU directives, strategies and action
+    plans</a>  (2025).
+  </p>
+  <p>
+    This page provides information for diagnosing the condition of a potentially chemically polluted
+    source. This entails setting up a characterisation monitoring program for the reliable assessment of
+    water, soil and sediment quality and can be based on the following questions:
+    1) Which substances are you interested in?,
+    2) Which models are available for complementing monitoring data in the prediction of the fate of substances of interest in the environment?,
+    3) Which factors are important to include in your sampling strategy for selected substances?,
+    4) Which analytical chemistry methods exist for analysing PM(T) substances? and
+    5) Which biological methods exist for analysing complex mixture effects of PM(T) substance?
+  </p>
+
+  <p-accordion>
+    <!-- monitoring - question 1-->
+    <p-accordionTab header="Question 1: Which substances are you interested in?">
+      <p>
+        This section gives an overview of the most frequently monitored substances, their average
+        concentration levels in different matrices and detection frequency, which can be helpful when it is
+        not clear which substances to include in a monitoring program. This section can also help to
+        benchmark data to what is already available in the EMPODAT database. The occurrence data can be
+        assessed in connection to the sector in which a substance is used [Link to Question 2 of the Prevention
+        Module]. Nevertheless, if available, local information on how a substance is used should always be
+        prioritized.
+      </p>
+      <p>
+        Below, a visual overview of target chemical monitoring data from the
+        <a target="_blank" href="https://www.norman-network.com/nds/empodat/">
+          NORMAN EMPODAT Database</a> (2024a), - Chemical Occurrence Data (norman-network.com) is provided. The concentration plot
+          shows the substances with highest median concentration across the monitored matrices. A maximum
+          of 20 substances is shown. The substances shown in the concentration plot are also visualized in the
+          frequency plot. The full dataset behind the visualisation (not only the 20 highest) can be downloaded.
+          On the concentration plot a single substance and/or a single matrix can be selected to zoom in. This
+          zoomed-in effect is directly displayed in the frequency plot and in the database below. For a specific
+          sample, it is possible to click on the sample ID and all the background information will be displayed.
+      </p>
+      <ul>
+        <li><i>Targeted chemical monitoring data</i></li>
+      </ul>
+
+      <app-solution-monitoring-chart></app-solution-monitoring-chart>
+
+      <ul>
+        <li><i>Suspect and/or non-targeted chemical monitoring data </i>
+        </li>
+      </ul>
+      <p>
+        Currently the DSF focuses only on target chemical monitoring data. However, it is possible to include
+        suspect and even non-target screening data in the monitoring dataset (after downloading the target
+        chemical monitoring data selected in the previous section onto the local computer). Suspect and nontarget
+        screening is increasingly used in addition to target monitoring to improve the identification of
+        contaminants of concern, particularly less-investigated substances, restricted, or compounds for
+        which the standards are not commercially available or too expensive. For each detected suspect
+        compound, the data can be provided as semi-quantified concentrations with a level of confidence of
+        identification of the substance, from 1 (confirmed with analytical standard) to 5 (mass of the
+        compound matches) as described in
+        <a target="_blank" href="https://pubs.acs.org/doi/full/10.1021/es5002105">Schymanski et al. (2014)</a>.
+        With the addition of this information, the target and suspect screening monitoring data can be exploited in an integrated,
+        complementary assessment workflow as described in
+        <a target="_blank" href="https://link.springer.com/article/10.1186/s12302-024-00936-3">(Dulio et al. 2024)</a>.
+        Purchase or synthesis of standards for full confirmation can be decided subsequently based on the relevance of the identification, e.g.,
+        frequency of detection (above LOQ), peak intensity and/or potential ecological or toxic effect. In this
+        way, it is possible to obtain a comprehensive overview of the chemical profile beyond target analysis.
+      </p>
+    </p-accordionTab>
+    <!-- monitoring - question 2-->
+    <p-accordionTab header="Question 2: Which models are available for complementing monitoring data in the prediction of the fate of substances of interest in the environment?">
+      <p>
+        It is often practically impossible or simply too costly to monitor the exposure of all substances of
+        interest in the environment at all times, and/or all exposure pathways and routes always and
+        everywhere. This section provides with fate and transport models that can be used to complement
+        monitoring data, refine monitoring schemas and assess potential future developments. The
+        outcomes of these models can also help designing a sampling strategy in terms of selection of critical
+        locations, sampling frequency, time points and sampling matrix.
+        Within the PROMISCES project four types of fate and transport models where developed/optimized
+        to calculate contaminant concentrations in the environment at a given location and at a given point
+        in time i.e.:
+      </p>
+      <ul>
+        <li>
+          Screening level models for assessment of regional exposure of groundwater from soil pollution
+          and for assessment of general exposure of air, soil and water on a local, regional or global scale,
+        </li>
+        <li>
+          Spatial and temporal explicit models for the identification of pollution plumes from contaminated
+          soil in groundwater
+        </li>
+        <li>
+          Emission-models on urban to catchment scale to identify sources and pathways of chemicals and
+          relate them to instream concentrations.
+        </li>
+        <li>
+          In context of model trains these emission models have been connected to ground water models
+          identifying the transport and fate of contaminants during bank filtration form rivers to water
+          abstraction for supply.
+        </li>
+      </ul>
+      <p>
+        A toolbox for these four types of fate and transport models of persistent, mobile and potentially toxic
+        substances (PM(T)) in the environment is provided by the PROMISCES-project in
+        <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10">
+        D2.3 Toolbox Fate & Transport modeling</a>.
+        A guidance for applications of these four types
+        of models is available A guidance for applications of these four types of models is available in
+        <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10">
+        D2.4 Guidance Document on Emission Fate and Transport</a>.
+        This guidance document explains the basic concepts of specific model and how these models can best be used in
+        model trains in a tiered way. This means, explanations of applications of a combination of standalone
+        models to cover complex situation including several environmental spheres such as atmosphere,
+        lithosphere, hydrosphere, biosphere, and anthroposphere and their interfaces.
+      </p>
+    </p-accordionTab>
+    <!-- monitoring - question 3-->
+    <p-accordionTab header="Question 3: Which factors are important to include in your sampling strategy?">
+      <p>
+        In this section different types of methodologies and lessons learned from PROMISCES when it comes
+        to sampling strategies are highlighted based on
+        <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10">
+        Deliverable 1.7 Implementing of monitoring strategies including new approaches and feedbacks</a>.
+        It includes information on:
+      </p>
+      <ul>
+        <li>
+          Selection of sampling locations
+        </li>
+        <li>
+          Designing sampling strategy keeping in mind the representativeness of the sample and
+          heterogeneity. This includes sample size and sampling frequency and the selection of the sample
+          matrix of interest. For statistical analysis ideally both field and laboratory studies should include
+          at least three replicates and should also include field and laboratory blanks.
+        </li>
+        <li>
+          Execution of sampling event in such a way that any contamination from any material (e.g. Tubing
+          Sealing, O-rings) is avoided.
+        </li>
+        <li>
+          Transportation of field samples to the laboratory.
+        </li>
+        <li>
+          Storing of samples until analysis.
+        </li>
+      </ul>
+    </p-accordionTab>
+    <!-- monitoring - question 4-->
+    <p-accordionTab header="Question 4: Which analytical methods are available for analysing PM(T) substances?">
+      <p>
+        Several different approaches are required to cover PM(T) analysis in various sample matrices such as
+        drinking water and groundwater. Due to potential direct exposure to humans, the methods for these
+        matrices may be most relevant for monitoring by authorities. Within the PROMISCES project in total
+        sixteen analytical methods have been developed/adapted for the detection of PM(T) substances,
+        respectively four for industrial PM(T)s, ten for PFAS and two for global organic fluorinated content.
+        <br>
+        The reported methods respond to the needs observed in PROMISCES case studies
+        <a target="_blank" href="https://promisces.eu/Project/Case+Studies.html">
+        (https://promisces.eu/Project/Case+Studies.html).</a>
+        The target compounds analysed in each case have been selected based on previous suspect screening methods,
+        knowledge of local activities and stakeholders, and/or previously reported data.
+        <br>
+        Their design and experimental conditions are marked by the physical-chemical properties of the
+        targeted compounds, the instrumentation available, the matrix under study and the required
+        analytical performance, primarily in terms of limits of quantification (LOQs) that should be ideally
+        lower than the corresponding predicted no-effect concentrations (PNEC).
+        <br>
+        This paragraph is intended to help select appropriate analytical methods for industrial PM(T), global
+        organic fluorinated content and PFAS analysis. Note that the proposed methods can give an
+        indication of the relevant methods depending on the substance/matrix of interest.
+      </p>
+
+      <ul>
+        <li>
+          <i><u>Four analytical  methods for (i)PM(T)</u></i>
+        </li>
+      </ul>
+      <p>
+        The four methods detailed in this section cover 84 different (i)PM(T)s and four different types of
+        matrices. Below a comparative summary of the four (i)PM(T) methods is presented.
+      </p>
+      <p><b>Comparative summary of all iPM(T) methods</b></p>
+      <div class="flex">
+        <p-table [value]="comparativeAllMethods" styleClass="p-datatable-gridlines  p-datatable-striped">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th></th>
+                  <th>BAFG</th>
+                  <th>BWB</th>
+                  <th>CSIC 1</th>
+                  <th>CSIC 2</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-met>
+              <tr >
+                <td>{{ met.name }}</td>
+                <td>{{ met.bafg }}</td>
+                <td>{{ met.bwb }}</td>
+                <td>{{ met.csic1 }}</td>
+                <td><p innerHtml="{{met.csic2}}"></p></td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          <sup>α</sup>used particularly for chlorinated solvents and other volatile organic compounds (VOCs) in groundwater samples.
+        </p>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          Search for individual compounds will be possible using the three filters indicated with a symbol (<i class="pi pi-filter"></i>):
+          individual compound, CAS and ESI.
+        </p>
+      </div>
+
+      <div class="col-12 md-12">
+        <p-table [value]="substancesiPMTMethod" dataKey="casNumber" styleClass="p-datatable-striped"
+          [scrollable]="true" appendTo="body"
+          [paginator]="true" [totalRecords]="substancesiPMTMethod.length" [rowHover]="true"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[5, 10, 20, 50]" [rows]="5">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>{{ 'substance.individualCompound' | translate }}</th>
+                  <th>{{ 'substance.casNumber' | translate }}</th>
+                  <th>{{ 'substance.substanceCategory' | translate }}</th>
+                  <th>{{ 'substance.ipmtMethod' | translate }}</th>
+                  <th>{{ 'substance.electroSprayIonization' | translate }}</th>
+                  <th>{{ 'substance.retentionTime' | translate }}</th>
+                  <th>{{ 'substance.precursor' | translate }}</th>
+                  <th>{{ 'substance.internalStandard' | translate }}</th>
+                  <th>{{ 'substance.limitQuantificationUnit' | translate }}</th>
+                  <th>{{ 'substance.sampleMatrix' | translate }}</th>
+                  <th>{{ 'substance.recovery' | translate }}</th>
+                  <th>{{ 'substance.relativeStandardDerivation' | translate }}</th>
+              </tr>
+              <tr>
+                <th>
+                  <p-columnFilter type="text" field="individualCompound" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <th>
+                  <p-columnFilter type="text" field="casNumber" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <th>
+                  <p-columnFilter type="text" field="substanceCategory" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <th>
+                  <p-columnFilter type="text" field="ipmtMethod" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-sub>
+              <tr>
+                  <td>{{ sub.individualCompound }}</td>
+                  <td>{{ sub.casNumber }}</td>
+                  <td>{{ sub.substanceCategory }}</td>
+                  <td>{{ sub.ipmtMethod }}</td>
+                  <td>{{ sub.electroSprayIonization }}</td>
+                  <td>{{ sub.retentionTime }}</td>
+                  <td>{{ sub.precursor }}</td>
+                  <td>{{ sub.internalStandard }}</td>
+                  <td>{{ sub.limitQuantification }}</td>
+                  <td>{{ sub.sampleMatrix }}</td>
+                  <td><span pTooltip="{{sub.recoveryInformation}}" tooltipPosition="top">{{ sub.recovery }}{{sub.recoveryInformation!=='' ? ' *' : ''}}</span></td>
+                  <td>{{ sub.relativeStandardDerivation }}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+              <tr>
+                  <td colspan="12">{{ 'no-records-found' | translate }}</td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          Further details for each method are available in
+          <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10">
+          Deliverable 1.2 Targeted methods for industrial PM(T)</a> (2023).
+        </p>
+
+        <ul>
+          <li>
+            <i><u>Ten analytical  methods for PFAS</u></i>
+          </li>
+        </ul>
+        <p>
+          The ten methods detailed in this section cover 57 different PFAS and 12 different types of matrices.
+          Below a comparative summary of the ten PFAS methods is presented.
+        </p>
+      </div>
+
+      <div class="col-12 md-12">
+        <p><b>Comparative summary of the ten PFAS methods</b></p>
+      </div>
+      <div class="col-12 md-12 flex">
+        <p-table [value]="comparativePFASMethods" styleClass="p-datatable-gridlines p-datatable-striped">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th></th>
+                  <th>ACEA_1</th>
+                  <th>ACEA_2</th>
+                  <th>BRGM_IPGP_1</th>
+                  <th>BRGM_IPGP_2</th>
+                  <th>BWB_1</th>
+                  <th>BWB_2</th>
+                  <th>CSIC_1</th>
+                  <th>CSIC_2</th>
+                  <th>TU_Wien_1</th>
+                  <th>TU_Wien_1</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-met>
+              <tr >
+                <td>{{ met.name }}</td>
+                <td>{{ met.acea1 }}</td>
+                <td>{{ met.acea2 }}</td>
+                <td>{{ met.ipgp1 }}</td>
+                <td>{{ met.ipgp2 }}</td>
+                <td>{{ met.bwb1 }}</td>
+                <td>{{ met.bwb2 }}</td>
+                <td>{{ met.csic1 }}</td>
+                <td>{{ met.csic2 }}</td>
+                <td>{{ met.wien1 }}</td>
+                <td>{{ met.wien2 }}</td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          It will be possible to search for individual compounds using the three filters indicated with a symbol
+          (<i class="pi pi-filter"></i>): individual compound, CAS and ESI.
+        </p>
+      </div>
+
+      <div class="col-12 md-12 flex">
+        <p-table [value]="substancesPFASMethod" dataKey="individualCompound" styleClass="p-datatable-striped"
+        [scrollable]="true" appendTo="body"
+        [paginator]="true" [totalRecords]="substancesPFASMethod.length" [rowHover]="true"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[5, 10, 20, 50]" [rows]="5">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>{{ 'substance.individualCompound' | translate }}</th>
+                  <!--<th>{{ 'substance.casNumber' | translate }}</th>-->
+                  <th>{{ 'substance.pfasMethod' | translate }}</th>
+                  <th>{{ 'substance.electroSprayIonization' | translate }}</th>
+                  <th>{{ 'substance.retentionTime' | translate }}</th>
+                  <th>{{ 'substance.precursor' | translate }}</th>
+                  <th>{{ 'substance.internalStandard' | translate }}</th>
+                  <th>{{ 'substance.limitQuantification' | translate }}</th>
+                  <th>{{ 'substance.unitLoQ' | translate }}</th>
+                  <th>{{ 'substance.sampleMatrix' | translate }}</th>
+                  <!--<th>{{ 'substance.relativeStandardDerivation' | translate }}</th>-->
+              </tr>
+              <tr>
+                <th>
+                  <p-columnFilter type="text" field="individualCompound" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <!--<th>
+                  <p-columnFilter type="text" field="casNumber" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>-->
+                <th>
+                  <p-columnFilter type="text" field="pfasMethod" matchMode="contains" filter="filter"></p-columnFilter>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <!--<th></th>-->
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-sub>
+              <tr>
+                  <td>{{ sub.individualCompound }}</td>
+                  <!--<td>{{ sub.casNumber }}</td>-->
+                  <td>{{ sub.pfasMethod }}</td>
+                  <td>{{ sub.electroSprayIonization }}</td>
+                  <td>{{ sub.retentionTime }}</td>
+                  <td>{{ sub.precursor }}</td>
+                  <td>{{ sub.internalStandard }}</td>
+                  <td>{{ sub.limitQuantification }}</td>
+                  <td>{{ sub.unitLoQ }}</td>
+                  <td>{{ sub.sampleMatrix }}</td>
+                  <!--<td>{{ sub.relativeStandardDerivation }}</td>-->
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+              <tr>
+                  <td colspan="9">{{ 'no-records-found' | translate }}</td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          Further analytical details of the ten PFAS methods above are available in
+          <a target="_blank" href="https://zenodo.org/records/14332693">
+          Deliverable D1.1 - Methods for PFAS in waters and complex matrices</a> (2024).
+        </p>
+
+        <ul>
+          <li>
+            <i><u>Two analytical methods for global organic fluorinated content</u></i>
+          </li>
+        </ul>
+        <p>
+          Two analytical approaches for assessment of global organic fluorinated content for relevant matrices
+          include Total Oxidizable Precursor (TOP) assay and Combustion Ion Chromatographic (CIC)
+          approaches. In the table below, a comparative summary of these two methods presented.
+        </p>
+      </div>
+
+      <div class="col-12 md-12 flex">
+        <p-table [value]="analyticalMethods" styleClass="p-datatable-gridlines p-datatable-striped" >
+          <ng-template pTemplate="header">
+              <tr>
+                <th></th>
+                <th colspan="2">TOP assay</th>
+                <th colspan="2">CIC approaches</th>
+              </tr>
+              <tr>
+                  <th>Matrices</th>
+                  <th>TUW</th>
+                  <th>BRGM</th>
+                  <th>BRGM</th>
+                  <th>BWB</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-met>
+              <tr >
+                <td>{{ met.name }}</td>
+                <td>{{ met.tuw }}</td>
+                <td>{{ met.brgm1 }}</td>
+                <td>{{ met.brgm2 }}</td>
+                <td>{{ met.bwb }}</td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="col-12 md-12">
+        <p>
+          Analytical details including the validation of the methods and their limitation are available in
+          <a target="_blank" href="https://promisces.eu/Results/_/D1.3.pdf">
+          Deliverable 1.3 Methods for global organic fluorinated content (TOP, TOF/AOF/EOF) for relevant matrices</a> (2024).
+        </p>
+      </div>
+    </p-accordionTab>
+
+    <!-- monitoring - question 5-->
+    <p-accordionTab header="Question 5 : Which biological methods are available for analysing complex mixture effects of
+    PM(T) substances?">
+      <p>
+        Currently, chemical hazards are typically assessed by targeted chemical analysis. However, this
+        approach fails to account for the complex mixture effects of the many chemicals potentially present
+        in water supplies and omits the possible effects of non-targeted chemicals. In this paragraph the
+        methodology of effect-based monitoring using existing and improved in vitro CALUX bioassay testing
+        combined with in silico toxicology is proposed. It is worth noting that this tool is a toxic-free way of
+        testing for safer and sustainable PFAS alternatives for a green environment. This tool is
+        complementary to targeted and non-targeted chemical analysis and covers a large variety of different
+        key events in toxicology in a time- and cost-efficient way. Briefly, the in vitro bioassay groups
+        addressed 40 PFAS compounds (e.g. including all regulated 20 PFAS) and industrial standards (e.g.,
+        ADONA, GenX) with a combination of a wide range of CALUX bioassay endpoints and additional
+        general toxicity in vitro bioassays. Additional up to 22 industrial PM(T) chemicals have been tested
+        with a combination of a wide range of CALUX bioassays and additional general toxicity in vitro. This
+        combined approach resulted in potency factors of a handful of PFAS/ industrial PM(T) for several
+        vitro bioassays by two bioassay laboratories involved in the PROMISCES project and can be applied
+        to other PFAS/industrial PM(T) substances. Further details regarding the methodology and its
+        validation are available in
+        <a target="_blank" href="https://promisces.eu/Results/_/D1.5.pdf">
+          Deliverable 1.5 Set of novel QSAR models/grouping/read-across and in vitro
+          bioassay approaches predicting relevant toxicological endpoints for PFAS/PM(T) chemicals
+        </a> (2024).
+      </p>
+    </p-accordionTab>
+  </p-accordion>
+
+</div>

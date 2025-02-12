@@ -1,0 +1,132 @@
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-toast></p-toast>
+
+<div class="grid">
+
+  <div class="col-12 md:col-12 xl:col-12">
+    <span class="title-page">{{ 'pmt-assessment.title' | translate }}</span>
+  </div>
+
+  <!-- substances search -->
+  <div class="col-12 md-12 field field-display-grid">
+    <div class="grid">
+      <!-- substanceName -->
+      <div class="field col-3 md-3 field-display-grid">
+        <label for="substanceNameSearch">{{ 'substance.substanceName' | translate }}</label>
+        <p-autoComplete [(ngModel)]="substanceNameSearch" [showEmptyMessage]="true"
+          [suggestions]="filteredSubstanceNames" (completeMethod)="searchSubstancesByName()"
+          [minLength]="3" [style]="{'width':'100%'}"
+          [placeholder]="'substance.typeName' | translate"></p-autoComplete>
+      </div>
+      <!-- substanceInchikey -->
+      <div class="field col-3 md-3 ">
+        <label for="inchikeySearch">{{ 'substance.inchikey' | translate }}</label>
+        <input type="text" pInputText [(ngModel)]="inchikeySearch" [placeholder]="'substance.typeInchikey' | translate" class="w-full"/>
+      </div>
+      <!-- substanceCasNumber -->
+      <div class="field col-3 md-3 ">
+        <label for="substanceCasNumberSearch">{{ 'substance.casNumber' | translate }}</label>
+        <input type="text" pInputText [(ngModel)]="substanceCasNumberSearch" [placeholder]="'substance.typeCasNumber' | translate" class="w-full"/>
+      </div>
+
+      <div class="field col-3 md-3 alignEnd" >
+        <button pButton type="button" label="{{ 'button.search-substance' | translate }}" class="w-full"
+          styleClass="p-button p-button-primary" (click)="onButtonSearchSubstanceClicked()"></button>
+      </div>
+    </div>
+
+  </div>
+  <ng-container *ngIf="similarsData.length > 0">
+    <div class="col-12 md:col-12 xl:col-12">
+      <span class="subtitle-page">{{ 'dashboard.subtitle' | translate }}</span><br>
+    </div>
+    <div class="col-12 md:col-12 xl:col-12">
+      <div class="grid">
+        <!-- subtances criteria search -->
+        <div class="col-4 md:col-4 xl:col-4"></div>
+        <div class="col-8 md:col-8 xl:col-8 " >
+          <div class="title-section">{{ 'substance.relavanceByCriterion' | translate }}</div><br>
+          <!--<span class="subtitle-page">{{ 'dashboard.bar-click-description' | translate }}</span>-->
+        </div>
+        <div class="col-4 md:col-4 xl:col-4">
+          <div class="card card-substance-search">
+            <div class="substance-card-header">
+              <div class="title-section">{{ 'criteria-selection.title' | translate }}</div>
+            </div>
+            <div class="tasks">
+              <div class="formgrid grid">
+                <div class="field col-12 md:col-12 xl:col-12 ">
+                  <label>{{ 'criteria.persistence' | translate }}</label>
+                  <p-slider id="substance-criteria1-pslider" [(ngModel)]="persistence" [min]="0" [max]="10" [step]="1"
+                    (onSlideEnd)="onCriteriaFilterSelected()"></p-slider>
+                </div>
+                <div class="col-12 md:col-12 xl:col-12" >
+                  <ng-template [ngTemplateOutlet]="CriteriaChartPlotLine"></ng-template>
+                </div>
+                <div class="field col-12 md:col-12 xl:col-12  ">
+                  <label>{{ 'criteria.mobility' | translate }}</label>
+                  <p-slider id="substance-criteria2-pslider" [(ngModel)]="mobility" [min]="0" [max]="10" [step]="1"
+                    (onSlideEnd)="onCriteriaFilterSelected()"></p-slider>
+                </div>
+                <div class="col-12 md:col-12 xl:col-12">
+                  <ng-template [ngTemplateOutlet]="CriteriaChartPlotLine"></ng-template>
+                </div>
+                <div class="field col-12 md:col-12 xl:col-12 ">
+                  <label>{{ 'criteria.toxicity' | translate }}</label>
+                  <p-slider id="substance-criteria3-pslider" [(ngModel)]="toxicity" [min]="0" [max]="10" [step]="1"
+                    (onSlideEnd)="onCriteriaFilterSelected()"></p-slider>
+                </div>
+                <div class="col-12 md:col-12 xl:col-12">
+                  <ng-template [ngTemplateOutlet]="CriteriaChartPlotLine"></ng-template>
+                </div>
+                <div class="field col-12 md:col-12 xl:col-12 ">
+                  <label>{{ 'criteria.kemi' | translate }}</label>
+                  <p-slider id="substance-criteria4-pslider" [(ngModel)]="kemi" [min]="0" [max]="10" [step]="1"
+                    (onSlideEnd)="onCriteriaFilterSelected()"></p-slider>
+                </div>
+                <div class="col-12 md:col-12 xl:col-12">
+                  <ng-template [ngTemplateOutlet]="CriteriaChartPlotLine"></ng-template>
+                </div>
+                <div class="col-12 md:col-12 xl:col-12 flex align-items-center justify-content-end" >
+                  <button pButton type="button" [label]="'button.reset' | translate" class="p-button-secondary"
+                  style="width: 100%;" (click)="resetSearchSelection()"></button>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-8 md:col-8 xl:col-8" >
+          <div class="grid">
+            <div class="col-12 md:col-12 xl:col-12" style="text-align: -webkit-center;">
+              <app-substance-bar-chart [similarsData]="similarsData"></app-substance-bar-chart>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 md:col-12 xl:col-12" style="text-align: -webkit-center;">
+      <app-substance-bubble-chart [sectorAverageScore]="sectorAverageScore" [pcAverageScore]="pcAverageScore"></app-substance-bubble-chart>
+    </div>
+  </ng-container>
+
+</div>
+
+<ng-template #CriteriaChartPlotLine >
+  <div class="chart">
+    <div class="tick"><span>0</span></div>
+    <div class="tick"><span></span></div>
+    <div class="tick"><span>2</span></div>
+    <div class="tick"><span></span></div>
+    <div class="tick"><span>4</span></div>
+    <div class="tick"><span></span></div>
+    <div class="tick"><span>6</span></div>
+    <div class="tick"><span></span></div>
+    <div class="tick"><span>8</span></div>
+    <div class="tick"><span></span></div>
+    <div class="tick"><span>10</span></div>
+  </div>
+</ng-template>

@@ -1,0 +1,174 @@
+{
+  "content": [
+        {
+          "number": "1",
+          "ceRoute": "route_e",
+          "technologies": [
+            "In situ non-newtonian fluid flushing"
+          ],
+          "categories": [
+            "Separation – physical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Soil",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "2",
+          "ceRoute": "route_c",
+          "technologies": [
+            "Sediment washing"
+          ],
+          "categories": [
+            "Separation – physical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Sediment",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "3",
+          "ceRoute": "route_c",
+          "technologies": [
+            "Membrane filtration (nanofiltration, reverse osmosis)"
+          ],
+          "categories": [
+            "Separation – physical",
+            "Concentration – physical"
+          ],
+          "targetCompounds": "PFAS, other iPMTs",
+          "targetMedia": "Landfill leachate, water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "4",
+          "ceRoute": "route_c",
+          "technologies": [
+            "Plasma"
+          ],
+          "categories": [
+            "Destruction - chemical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Landfill leachate",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "5",
+          "ceRoute": "route_c",
+          "technologies": [
+            "Co-pyrolysis of membrane concentrates and sewage sludge"
+          ],
+          "categories": [
+            "Destruction – physical, chemical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Landfill leachate concentrate, sewage sludge",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "6",
+          "ceRoute": null,
+          "technologies": [
+            "Surface Active Foam Fractionation (SAFF ®)"
+          ],
+          "categories": [
+            "Separation – physical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "SCENARIOS"
+        },
+        {
+          "number": "7",
+          "ceRoute": "route_b",
+          "technologies": [
+            "Plant uptake (wetlands)"
+          ],
+          "categories": [
+            "Separation – physical",
+            "Destruction – biological"
+          ],
+          "targetCompounds": "PFAS, other iPMTs",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "8",
+          "ceRoute": null,
+          "technologies": [
+            "Vermichar"
+          ],
+          "categories": [
+            "Separation – physical, biological"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Soil",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "SCENARIOS"
+        },
+        {
+          "number": "9",
+          "ceRoute": "route_e",
+          "technologies": [
+            "Ultrasonic cavitation"
+          ],
+          "categories": [
+            "Destruction - chemical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "10",
+          "ceRoute": null,
+          "technologies": [
+            "Cold atmospheric plasma"
+          ],
+          "categories": [
+            "Destruction - chemical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "SCENARIOS"
+        },
+        {
+          "number": "11",
+          "ceRoute": "route_e",
+          "technologies": [
+            "Activated persulfate with ferrate"
+          ],
+          "categories": [
+            "Destruction - chemical"
+          ],
+          "targetCompounds": "PFAS",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        },
+        {
+          "number": "12",
+          "ceRoute": "route_b",
+          "technologies": [
+            "E-peroxone based electrochemical advanced oxidation process (EAOP)"
+          ],
+          "categories": [
+            "Destruction - chemical"
+          ],
+          "targetCompounds": "PFAS, other iPMTs",
+          "targetMedia": "Water",
+          "link": "https://boss.cen.eu/developingdeliverables/cwa/pages/",
+          "source": "PROMISCES"
+        }
+      ]
+}

@@ -1,0 +1,227 @@
+<div class="grid">
+  <div class="col-12 md:col-12">
+    <p>
+      <b>Prevention</b>
+    </p>
+    <p>
+      This page offers different measures that can be implemented to prevent the release of persistent,
+      mobile and potentially toxic (PM(T)) substances into the environment. It provides information on
+      PM(T) identification, substitution, and additional scientific and technical solutions for preventing
+      contaminants in specific routes based on the following four questions: 1) Is the substance persistent,
+      mobile and/or toxic? 2) How and where is the substance used? 3) Are there alternatives for the
+      substance? 4) What are other prevention methods besides substitution? 
+    </p>
+    <p-accordion>
+      <!-- prevention - question 1-->
+      <p-accordionTab header="Question 1: Is the substance persistent, mobile and/or toxic?">
+        <p>
+          The diagnosis of potential PM(T) substances module can be used to support the identification of
+          persistent, mobile, and toxic substances. It includes an (eco)toxicity-score based on the CLP criteria
+          (EC, 2023). It also includes an emissions score, which can be useful for regulators or environmental
+          managers by helping them to prioritize substances not only based on their P, M and T properties, but
+          also on the expected volume of emissions. This may help to identify substances for which exposure
+          is (expected to be) highest. Substances that occur as by-products should also be considered. The
+          benchmark values used for the P, M and T score are explained in <a target="_blank" href="https://zenodo.org/records/14204373">Deliverable D5.1 - Mapping of PM(T)
+          concerns in EU </a>(2024).
+        </p>
+        <p>
+          The results of the <a target="_blank" routerLink="/identifier">PM(T) assessment tool</a> provide a prediction of potential PM(T)/vPvM properties. It
+          should be noted that a low or high score is only a first indication that the substance is of potential
+          low or high concern. Predicted scores should be used as a first screening step, which need to be
+          followed by further investigation of these properties.
+        </p>
+        <app-substance-point-area-chart [substancesData]="substancesData"></app-substance-point-area-chart>
+        <p>
+          If a substance is labelled as potential PM(T)/vPvM, the SimpleBox Aquatic Persistence Dashboard can
+          be used to evaluate the time that a substance remains in the water phase and hence its tendency to
+          flow downstream and eventually reach the ocean. The SimpleBox Aquatic Persistence Dashboard
+          enables the user (exposure/risk assessor or policy maker) to screen the combined PM(T) properties
+          of a substance as it directly indicates the timescale over which a chemical is anticipated to remain in
+          surface water bodies. <a target="_blank" href="https://zenodo.org/records/13752192">The tool is available in the zenodo repository</a> (2024).
+        </p>
+      </p-accordionTab>
+    <!-- prevention - question 2-->
+      <p-accordionTab header="Question 2: How and where is the substance used?">
+        <p>
+          The DSF includes information on product categories in which substances are used (e.g. coatings and
+          paints, or adhesives and sealants) and their sectors of uses (e.g. health services, or building and
+          construction work) based on data registered in REACH: 
+          <a routerLink="/assessment"> Figure on substance use and product categories.</a> 
+        </p>
+        <p>The <a target="_blank" href="https://www.norman-network.com/nds/SLE/">
+          NORMAN Suspect List Exchange </a>(2024b) 
+          and the Environmental Protection Agency Chemical and
+          Products database (EPA CPDat) can provide information on the known or predicted use of the
+          substance of interest. The NORMAN Suspect list provides information on the products in which the
+          substance may be used. CPDat provides information on the functional use of the substance and is
+          available through the
+          <a target="_blank" href="https://comptox.epa.gov/dashboard/">CompTox Chemicals dashboard</a> (2024).
+          Inversely, the
+          <a target="_blank" href="https://pfas.chemsec.org/">ChemSec PFAS guide</a> (2023) 
+          can be used to identify whether sectors or products are likely to contain PFAS. Lastly,
+          <a target="_blank" href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> collects chemical 
+          information from multiple sources, including the NORMAN Suspect List and CPDat. 
+        </p>
+        <p>
+          Most industrialised countries have inherited a long industrial past during which environmental
+          concerns and constraints were not the same as they are today. At the time, there was little or no
+          awareness of the consequences of product spills and pollution in the water, air and/or soil. This
+          pollution, due to former waste deposits or the infiltration of polluting substances, is likely to cause a
+          nuisance or a risk for people or the ecosystems on these sites. For groundwater and soil pollution, it
+          may also be relevant to know where and when a substance was used in the past. Databases on soil
+          and groundwater contamination and their relationship with past industrial activities may be available
+          at national level.
+        </p>
+        <p>
+          For example, the French Ministry of the Environment has been listing polluted or potentially polluted
+          sites and soils since the early 1990s. The data is available on the 
+          <a target="_blank" href="https://www.georisques.gouv.fr/articles-risques/pollutions-sols-sis-anciens-sites-industriels/basol">
+            Georisques portal</a> (2024).
+        </p>
+      </p-accordionTab>
+      <!-- prevention - question 3-->
+      <p-accordionTab header="Question 3: Are there substitutes for the substance?">
+        <p>
+          The PM(T) identifier tool enables smart decision-making by helping to compare alternatives and
+          select substances for production processes and products that are safe-by-design. Substances that are
+          considered PM(T) should be substituted if alternatives are available. Substitutions do not have to be
+          chemical, but can also be an alternative product, technology or service. There are multiple platforms
+          that can be used to find substitutes for substances. These can be distinguished into platforms that
+          are searchable databases for specific substances, products and/or functional uses, and platforms that
+          gather general information and case study reports on substitution. 
+        </p>
+        <p>Examples of databases on substitution:</p>
+        <ul>
+          <li>
+            <a target="_blank" href="https://marketplace.chemsec.org/">marketplace.chemsec.org (2024)</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://zeropm.eu/alternative-assessment-database/">ZeroPM Alternative Assessment Database - ZeroPM (2024)</a>
+          </li>
+        </ul>
+        <p>
+          Both these tools should serve as a starting point for deeper analysis. An effective substitution
+          requires to assess whether the alternatives can be relevant in terms of performances and
+          economically viable. Therefore, the specific goals and context of uses have to be known. The
+          involvement of stakeholders with a detailed knowledge of the technical and economic criteria to be
+          validated is therefore expected in order to carry out a more in-depth study
+        </p>
+        <p>
+          When substituting one chemical with another, great care should be taken that this does not lead to
+          regrettable substitution; e.g. the replacement with substances that have different or unknown
+          hazards. The PM(T) assessment tool can be used to compare whether substances are (expected to
+          be) less persistent, mobile, and toxic than the substance to substitute. This should be applied as a
+          screening tool to select substances that are likely to be safer. For more detailed information and
+          guidance on identifying safer alternatives for substances and examples of successful case studies, we
+          recommend the following resources:
+        </p>
+        <ul>
+          <li>
+            <a target="_blank" href="https://substitution-perfluores.ineris.fr/en">
+              INERIS substitution portal (2024)</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.subsportplus.eu/subsportplus/EN/Home/Home_node.html">
+              subsportplus.eu (2024)</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.ri.se/en/the-swedish-centre-for-chemical-substitution">
+              The Swedish Centre for Chemical Substitution | RISE (2024)</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.oecd-ilibrary.org/environment/oecd-series-on-risk-management-of-chemicals_f7f30439-en">
+              OECD series on Risk Management of Chemicals (2024b)</a>
+          </li>
+        </ul>
+      </p-accordionTab>
+      <!-- prevention - question 4-->
+      <p-accordionTab header="Question 4: What are other prevention methods besides substitution?">
+        <p>
+          <b><i>Minimize release to the environment using Best Available Techniques</i></b>
+        </p>
+        <p>
+          If no suitable alternatives are available and the use of substances with PM(T) properties cannot be
+          prevented, great care should be taken to avoid any emissions of the substance. Responsible use of
+          PM(T) substances might be possible within closed-loop systems without any risk of emissions. Best
+          Available Techniques (BAT) should be used to minimize risk of emissions. For some industrial sectors, 
+          BAT reference documents (BREFs) have been established. These reference documents are available
+          at 
+          <a target="_blank" href="https://eippcb.jrc.ec.europa.eu/reference">
+            BAT reference documents 
+          </a>
+          (2024a) disclaimer, as of publication, PM(T) substances are not
+          explicitly addressed in BATs. 
+        </p>
+          <br>
+        <p>
+          <b><i>Develop new substances using Safe and sustainable by design principles</i></b>
+        </p>
+        <p>
+          A framework has been developed to help the development of safer and more sustainable chemicals;
+          called the Safe and Sustainable by Design (SSbD) framework.
+          <a target="_blank" href="https://dx.doi.org/10.2760/28450">A methodological guidance (2024)</a>
+          is available on the website of the Publications Office of the European Union. In addition, 
+          <a target="_blank" href="https://www.parc-ssbd.eu/">a toolbox</a> (2024) 
+          is available that collects tools and models for the purpose of SSbD.
+          <br>
+        </p>
+        <p>
+          Other tools and models that could be used for Safe and Sustainable by Design:
+        </p>
+          <ul>
+            <li>
+              <i><a target="_blank" href="https://zenodo.org/records/14264967">
+                A science-based innovative dashboard to operationalise Safe & Sustainable-by-Design (2024).</a></i>
+            </li>
+            <li>
+              <i>[Room for reference to relevant models in PROMISCES model ToolBox]</i>
+            </li>
+          </ul>
+        <br>
+        <p>
+          <b><i>Consider if the functional use or even product itself is essential</i></b>
+        </p>
+        <p>
+          Discussions on the exact definition of essential use, and how to best implement it, are still ongoing.
+          However, if a safe or safer alternative for the PM(T) substance cannot be identified, it is worth
+          considering as a user or producer of a PM(T) substance or product whether it is truly essential to use
+          it. If the level of performance required or could it be relaxed? Does the functional use of the PM(T)
+          substance significantly impact the performance of the product? And if so, to what extent is the
+          product required for human health or the functioning of society? 
+        </p>
+        <p>
+          So far, no EU legislation contains a definition of essential uses of substances. Nonetheless, the
+          European Commission published a Communication in 2024 in order to elaborate on the concept and
+          relevant criteria, and to guide its possible use. The communication is available in the
+          <a target="_blank" href="https://op.europa.eu/en/publication-detail/-/publication/90926c62-0365-11ef-a251-01aa75ed71a1/language-en">
+            web of the publication office of the European union
+          </a> (2024b).
+        </p>
+        <p>
+          According to the Communication, a use of a “most harmful substance” i.e. a PM(T) and/or a vPvM
+          substance is essential for society if the following two criteria are met: 
+          <br>
+          1) that use is necessary for health or safety or is critical for the functioning of society, and
+          <br>
+          2) there are no acceptable alternatives.
+        </p>
+        <p>
+          The communication provides examples of what can be considered as “necessary for health or safety”
+          (e.g. if the use and the technical function of the substance is necessary to manage health crises and
+          emergencies), as “critical for the functioning of society” (e.g. to provide services that must remain in
+          service for society to function like ensuring the supply of energy), and as an “acceptable alternative”.
+          Nonetheless, this will be subject to further assessment.
+        </p>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</div>
+
+<!--(mouseover)="op.toggle($event)"-->
+<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
+  <p>
+    PM(T) and vPvM are included in the subgroup of most harmful substances in the Communication. Nonetheless, this will be
+    subject to further assessment.
+  </p>
+</p-overlayPanel>
+

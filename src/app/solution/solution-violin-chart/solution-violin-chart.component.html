@@ -1,0 +1,53 @@
+<!--<div class="flex" *ngFor="let route of ceRoutesList" class="p-field-checkbox">
+  <p-radioButton [inputId]="route.name" name="route" [value]="route" [(ngModel)]="selectedCeRoute"
+  ></p-radioButton>
+  <label [for]="route.name">{{route.description}}</label>
+</div>-->
+<div class="grid">
+  <div class="col-8 md-8 field">
+    <!--<label [for]="selectedCeRoute">Filter data plot by CE route:</label>-->
+    <p-dropdown [options]="ceRoutesList" [(ngModel)]="selectedCeRoute"
+      placeholder="Select a CE Route" optionLabel="description" ootionValue="name" [showClear]="true"
+      (onChange)="updateChartWithSelectedOptions();" [style]="{'width': '100%'}"
+    ></p-dropdown>
+
+  </div>
+  <div class="col-12 md-12">
+    <div class="grid">
+      <div class="col-4 md-4 field ">
+        <!--<label [for]="selectedCeRoute">Filter data plot by CE route:</label>-->
+        <p-dropdown [options]="matrixLimitOptions" [(ngModel)]="selectedMatrix"
+          placeholder="Select a matrix" [showClear]="true"
+          [style]="{'width': '100%'}"
+          (onChange)="onChangeMatrixLimitSelected($event.value);">
+            <ng-template pTemplate="selectedItem">
+                <div>{{selectedMatrix?.matrix}} {{selectedMatrix?.limit!==null ? '('+selectedMatrix?.limit+')' : ''}}</div>
+            </ng-template>
+            <ng-template let-matLimit pTemplate="item">
+                <div>{{matLimit.matrix}} {{matLimit?.limit!==null ? '('+matLimit?.limit+')': ''}}</div>
+            </ng-template>
+        </p-dropdown>
+      </div>
+      <div class="col-2 md-2 p-field">
+        <span class="p-float-label">
+          <p-inputNumber id="limitNumber" [(ngModel)]="selectedMatrixLimit" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+            spinnerMode="horizontal" [step]="0.5" mode="decimal" [minFractionDigits]="1"
+            decrementButtonClass="p-button-primary" incrementButtonClass="p-button-primary"
+            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+            (keyup.enter)="saveMatrixLimit()" >
+          </p-inputNumber>
+          <label for="limitNumber" style="padding-left: 3rem;">Limit</label>
+      </span>
+      </div>
+      <div class="col-2 md-2 ">
+        <button pButton type="button" label="Save" (click)="saveMatrixLimit()"></button>
+      </div>
+      <div class="col-4 md-4 ">
+        <!--<button pButton type="button" label="Update plot with limits" (click)="updateChartWithSelectedOptions()"></button>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 md-12" id="solutionViolinChart" style="width:100%; min-height:40rem;"></div>
+</div>
+

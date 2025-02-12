@@ -1,0 +1,121 @@
+<div class="grid">
+  <div *ngIf="loading" class="col-12 md-12">
+    <p-progressSpinner></p-progressSpinner>
+  </div><!--
+  <div class="col-12 md-12">
+    <div id="mix" style="width:100%; min-height:40rem;"></div>
+  </div>-->
+  <div class="col-6 md-6">
+    <div id="solutionMonitoringBoxChart" style="width:100%; min-height:40rem;"></div>
+  </div>
+  <div class="col-6 md-6">
+    <div id="solutionMonitoringBarChart" style="width:100%; min-height:40rem; text-align: center;"></div>
+  </div>
+</div>
+<div class="col-12 md-12">
+  <p>
+    <i>
+      <b><u>Remark:</u></b> You can click the boxplots in the concentration plot (on the left) to zoom into an individual
+      substance of interest or on the different matrices presented in the legend. The corresponding frequency information
+      for your selection will be shown in the Frequency plot (on the right). You can also change the rotation of this figures.
+      The information shown below in the database is directly connected to the selection that you made
+      in the concentration plot. For example if you click on the highest boxplot in the concentration plot
+      you will zoom into information regarding the concentration (left plot) and frequency (right plot) of 1,1,1-Trichloroethane
+      across several matrices. If you’re interested in one matrix you can select it in the legend on the right side.
+    </i>
+  </p>
+  <p>
+    The database can be used to visualize a selection using the three filters indicated with a symbol
+    (<i class="pi pi-filter"></i>): individual compound, CAS and sample matrix.
+  </p>
+</div>
+
+
+<div class="col-12 md-12">
+  <p-table #substanceTable [value]="sampleSubstancesList" dataKey="casNumber" styleClass="p-datatable-striped"
+    (onFilter)="onFilterTable($event)"
+    [scrollable]="true" appendTo="body"
+    [paginator]="true" [totalRecords]="sampleSubstancesList.length" [rowHover]="true"
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[5, 10, 20, 50]" [rows]="5">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>{{ 'substance.individualCompound' | translate }}</th>
+            <th>{{ 'substance.casNumber' | translate }}</th>
+            <th>{{ 'substance.sampleMatrix' | translate }}</th>
+            <th>{{ 'substance.sampleMatrixType' | translate }}</th>
+            <th>{{ 'substance.concentration' | translate }}</th>
+            <th>{{ 'substance.samplingDate' | translate }}</th>
+            <th>{{ 'substance.limitDetection' | translate }}</th>
+            <th>{{ 'substance.limitQuantification' | translate }}</th>
+            <th>{{ 'substance.t' | translate }}</th>
+            <th>{{ 'substance.pH' | translate }}</th>
+            <th>{{ 'substance.stationNameCodes' | translate }}</th>
+            <th>{{ 'substance.dataSource' | translate }}</th>
+        </tr>
+        <tr>
+          <th>
+            <p-columnFilter field="substanceName" matchMode="contains" filter="filter"
+              >
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback" >
+                <p-chips [ngModel]="value" separator=","
+                (onRemove)="filter($event.value);" (onAdd)="filter($event.value);">
+                  <ng-template let-item pTemplate="item">
+                      {{ item }}
+                   </ng-template>
+                </p-chips>
+              </ng-template>
+            </p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="casNumber" matchMode="contains" filter="filter"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter field="sampleMatrix" matchMode="in"
+              [showMatchModes]="false" [showOperator]="false" [showAddButton]="false" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback" >
+                  <p-multiSelect [ngModel]="value" [options]="sampleMatrixOptions" placeholder="Any"
+                   appendTo="body" (onChange)="filter($event.value);"
+                   optionLabel="label" optionValue="value">
+                      <ng-template let-option pTemplate="item">
+                       {{option.label}}
+                      </ng-template>
+                  </p-multiSelect>
+              </ng-template>
+            </p-columnFilter>
+          </th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sample>
+          <tr>
+            <td>{{ sample.substanceName }}</td>
+            <td>{{ sample.casNumber }}</td>
+            <td>{{ sample.sampleMatrix }}</td>
+            <td>{{ sample.sampleMatrixType }}</td>
+            <td>{{ sample.concentration }}</td>
+            <td>{{ sample.samplingDate | date: 'dd-MM-yyyy' }}</td>
+            <td>{{ sample.limitOfDetection }}</td>
+            <td>{{ sample.limitOfQuantification }}</td>
+            <td>{{ sample.t }}</td>
+            <td>{{ sample.ph }}</td>
+            <td>{{ sample.stationName }}</td>
+            <td>{{ sample.dataSource }}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="12">{{ 'no-records-found' | translate }}</td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>

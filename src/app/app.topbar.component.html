@@ -1,0 +1,24 @@
+<div class="layout-topbar">
+  <div class="layout-topbar-wrapper">
+      <div class="layout-topbar-left">
+          <div class="layout-topbar-logo" id="logolink" style="cursor: pointer; outline: none;" routerLink="/">
+              <img id="app-logo"
+                   [src]="'assets/images/promisces-logo.png'"
+                   alt="promisces-logo">
+          </div>
+      </div>
+
+      <div class="layout-topbar-right">
+          <a class="menu-button" href="#" (click)="appMain.onMenuButtonClick($event)">
+              <i class="pi pi-bars"></i>
+          </a>
+
+          <div class="menu-wrapper" (click)="appMain.onMenuClick($event)">
+              <div class="layout-menu-container" >
+                <app-menu ></app-menu>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

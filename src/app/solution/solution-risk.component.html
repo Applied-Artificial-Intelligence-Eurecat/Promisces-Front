@@ -1,0 +1,158 @@
+<div class="grid">
+  <div class="col-12 md-12">
+    <p>
+      <b>Risk assessment</b>
+    </p>
+    <p>
+      This section aims to provide guidance on the assessment of risks of PM(T) substances in
+      environmental matrixes and circular economy routes based on the following four questions: 1) Are
+      limit values available for my substance based on European legislation? 2) What are the
+      concentrations found in the environment for my substance?, ) 3) What if no legal limits or HBGVs are
+      available for my substance?, 4) How could I determine the risk for human health of a specific circular
+      economy route?, 3 and 5) How can I determine the risk of a mixture of known and unknown
+      substances?
+      <br>
+      <br>
+      When using the information below it is important to acknowledge the difference between healthbased guideline values (HBGVs) on the one hand and legal limits for substances in specific matrices
+      on the other. The former is the chemical concentration that is not expected to result in any significant
+      risk to human health, whereas in the derivation of legal limits other considerations are also taken
+      into account such as technical and economic feasibility. Therefore, compliance with legal limits does
+      not necessarily mean zero risk. Furthermore, especially when it comes to PFAS, legal limits differ
+      between countries, matrices and context and might change in the near future. Also, different HBGVs
+      have been derived for PFAS based on differences in toxicological information used as well as different
+      mixture risk assessment approaches. 
+      <br>
+      <br>
+      In relation to the protection of the chemical status of water bodies, and thus human and
+      environmental health, this section includes information on Environmental Quality Standards (EQS)
+      from Directive 2000/60/EC (the Water Framework Directive). EQS are tools used for assessing the
+      chemical status of waterbodies. See for more information also 
+      <a target="_blank" href="https://op.europa.eu/en/publication-detail/-/publication/d5b2b9b9-32fb-11e8-b5fe-01aa75ed71a1">
+        the technical guidance on deriving EQS (2017)</a>. 
+      Finally, it should be noted that, while this section provides guidance on the risk
+      assessment of environmental concentrations of substances, the evolution of these concentrations
+      and thus the potential associated risk very much depends on the physical-chemical properties of that
+      substance. Therefore, it is strongly suggested, when using the information provided in this section,
+      one should not forget about these intrinsic properties of the chemical. For example, it’s persistence
+      in the environment. See also 
+      <a target="_blank" href="https://pubs.rsc.org/en/content/articlelanding/2019/em/c8em00515j">
+        Cousins et al. (2019)</a> 
+      for further reading on why persistence alone might be a major cause for concern. 
+    </p>
+    <p-accordion>
+      <!-- Risk assessment - question 1-->
+      <p-accordionTab header="Question 1: Are there limit values available for my substance based on European legislation?">
+        <p>
+          The appropriate limit value may depend on the specific circular economy route, product, and or
+          application. Furthermore, a specific country might have implemented a stricter limit then required
+          based on European legislation. This is for example the case for the limit for PFAS in drinking water in
+          Denmark. Directive (EU) 2020/2184 for the quality of water intended for human consumption 
+          requires Member States to implement one of the following two limit values in national legislation:
+          100 ng/L for 20 PFAS or 500 ng/L for the sum of PFAS. In June 2021, Denmark implemented, following
+          a recommendation from the European Food Agency (EFSA) a stricter limit for PFAS in drinking water,
+          namely 2 ng/L for the sum of PFOA, PFOS, PFNA and PFHxS. The DSF does not provide an exhaustive
+          overview of limit values on the national level. Limit values from European legislation will be used as
+          default, but the user may overwrite this default value with the appropriate national limit value. 
+        </p>
+        <p>
+          For an overview of current (proposed) limit values for PFAS in food, surface water, groundwater and
+          drinking water in Europe, we refer to Table 1 of 
+          <a target="_blank" href="https://doi.org/10.1016/j.envint.2024.108614">Reinikainen et al. 2024.</a> 
+          For other industrial PM(T) substances consult the:
+        </p>
+        <p>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32000L0060">Directive - 2000/60 - EN - Water Framework Directive - EUR-Lex</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006L0118">Directive - 2006/118 - EN - Groundwater Directive - EUR-Lex</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32013L0039">Directive - 2013/39 - EN - Priority Substances - EUR-Lex</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/eli/dir/2020/2184/oj">Directive - 2020/2184 - EN - Drinking Water - EUR-Lex</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022PC0541">EUR-Lex - 52022PC0541 - EN - Urban Waste Water Treatment Directive - EUR-Lex</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202403019">Directive (EU) 2024/3019 of the European Parliament and of the Council of 27 November 2024
+            concerning urban wastewater treatment (recast)</a><br>
+          <a target="_blank" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32020R0741">Regulation - 2020/741 - on minimum requirements for water reuse- EN - EUR-Lex</a>
+        </p>
+      </p-accordionTab>
+      <!-- Risk assessment - question 2-->
+      <p-accordionTab header="Question 2: What are the concentrations of my substance found in the environment?">
+        <p>
+          The tool below can be used to screen whether any information is available in the 
+          <a target="_blank" href="https://www.norman-network.com/nds/empodat/">NORMAN EMPODAT Database</a>
+          on the occurrence of a specific substance in a specific compartment of interest, and how it compares to a regulatory limit value. It is possible to enter the regulatory limit values
+          included under question 1 or provide the limit values applicable to a specific context.
+        </p>
+
+        <app-solution-violin-chart></app-solution-violin-chart>
+
+      </p-accordionTab>
+      <!-- Risk assessment - question 3-->
+      <p-accordionTab header="Question 3: In case no regulatory limit values or HBGVs are available for my substance how can
+      the risk be determined in a specific medium and for a specific use?">
+        <p>
+          For screening purposes, the
+          <a target="_blank" href="https://www.norman-network.com/nds/ecotox/lowestPnecsIndex.php"> NORMAN ecotoxicology database </a> 
+          provides information on the lowest
+          Predicted No Effect Concentrations (PNECs) of over 90.000 substances. These are indicative for the
+          impact on the ecosystem, and are available for freshwater, marine water, sediments, freshwater
+          biota (fish), marine biota (fish), freshwater biota (molluscs), and marine biota (molluscs). For
+          screening purposes, the “<a target="_blank" href="https://www.norman-network.com/nds/ecotox/lowestPnecsIndex.php">Lowest PNECs (2024a)</a>” 
+          from the NORMAN ecotoxicology database can be
+          used as a preliminary threshold in the figure under question 2. Also, within PROMISCES, an artificial
+          intelligence/machine learning-based model to predict the aquatic toxicity of organic compounds in
+          general was developed and validated. The quantitative machine learning model is able to predict the
+          aquatic toxicity of PFAS compounds for different species. The developed model predicts PFAS better
+          after transfer learning, especially when equally weighting PFAS and non-PFAS to get better
+          predictions for PFAS. Further details pertaining the model are available in <a target="_blank" href="https://promisces.eu/Results/_/D2.1.pdf">Deliverable 2.1</a>. 
+        </p>
+      </p-accordionTab>
+      <!-- Risk assessment - question 4-->
+      <p-accordionTab header="Question 4: How can I determine the risk to human health?">
+        <p>
+          The PROMISCES project has developed a risk-based human health exposure assessment (HHEA)
+          model to enables users to estimate the concentration of a particular substance along a process chain.
+          The model is probabilistic, which allows users to estimate exposure even when exact removal rates
+          in a process are uncertain or unknown. The output is a distribution of predicted concentrations in the
+          end product, which is compared to a HBGV. The thresholds are supplied by the model. An overview
+          of the reference values used in the HHEA model is available in 
+          <a target="_blank" href="https://zenodo.org/records/13141743">zenodo repository (2024)</a>.
+        </p>
+        <p>
+          The HHEA model covers the CE routes A, B, C and E. Thereby excluding CE route D titled “Material
+          recovery from dredged sediment for eco-materials”.
+        </p>
+        <ul>
+          <li>A. Nutrient and energy recovery from treated sludge for fertilizers</li>
+          <li>B. Wastewater reuse for agricultural irrigation</li>
+          <li>C. Semi-closed water cycle for drinking water supply</li>
+          <li>E. Groundwater and soil remediation to protect the water cycle</li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab header="Question 5: How can I determine the risk of both, known and unknown substances in my matrix?">
+        <p>
+          Matrixes contain a combination of multiple known and unknown substances. When the composition
+          of the mixture is unknown, effect-based methods can be applied to determine the risk of a mixture
+          of substances. Effect-based methods rely on the application of specific bioassays to determine the
+          whole-mixture potency of a sample. This can be utilized to determine the relative potency of a
+          sample, e.g. to compare to a reference, between locations, or compare potency before and after
+          treatment. To determine the risk with effect-based methods, a bioassay specific effect-based
+          threshold (EBT) should be defined and used. An overview of existing assays, EBT, and guidance how
+          to derive EBTs is provided in 
+          <a target="_blank" href="http://dx.doi.org/10.13140/RG.2.2.19954.27847">
+            the Technical Proposal for Effect-Based Monitoring and Assessment under the Water Framework Directive of the EU
+            Working Group Chemicals (2001).</a>
+          <br>
+          To be most informative, bioassays with relevant toxicological endpoints should be chosen for which
+          the substances of interest are both sensitive and specific. If unknown, QSAR modelling can be applied 
+          to predict relevant toxicological endpoints based on substance structure. For PFAS substances
+          monitored within the PROMISCES project the TTR-TR CALUX bioassay has proved to be the most
+          suitable. The TTR-TR CALUX is an assay for the disruption potential of thyroid hormone transport. For
+          more information, see PROMISCES
+          <a target="_blank" href="https://zenodo.org/communities/promisces/records?q=&l=list&p=1&s=10">
+            Deliverable 1.5 Set of novel QSAR models/grouping/read-across
+            and in vitro bioassay approaches predicting relevant toxicological endpoints for PFAS/PM(T)
+            chemicals. 
+          </a>
+        </p>
+    </p-accordionTab>
+    </p-accordion>
+    
+  </div>
+</div>

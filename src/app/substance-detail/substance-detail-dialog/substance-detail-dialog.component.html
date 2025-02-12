@@ -1,0 +1,148 @@
+<div class="grid">
+
+  <div class="col-12 md:col-12 xl:col-12">
+
+    <p-accordion [multiple]="true" [activeIndex]="[0]">
+      <p-accordionTab [header]="'substance.generalDescription' | translate">
+
+        <div class="grid">
+          <div class="col-4" >
+            <label for="substanceName" class="col-fixed" >{{'substance.substanceName' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.substanceName ? substance.substanceName : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="casNumber" class="col-fixed" >{{'substance.casNumber' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.casNumber ? substance.casNumber : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="Kemi_score" class="col-fixed" >{{'substance.Kemi_score' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.numericalData?.Kemi_score ? substance.numericalData?.Kemi_score : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="ecNumber" class="col-fixed" >{{'substance.ecNumber' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.ecNumber ? substance.ecNumber : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="canonicalSmiles" class="col-fixed" >{{'substance.canonicalSmiles' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.canonicalSmiles ? substance.canonicalSmiles : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="normanSusDatId" class="col-fixed" >{{'substance.normanSusDatId' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.normanSusDatId ? substance.normanSusDatId : '-'}}
+          </div>
+
+          <div class="col-4" >
+            <label for="conservativeClassification" class="col-fixed" >{{'substance.conservativeClassification' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.conservativeClassification ? substance.conservativeClassification : '-'}}
+          </div>
+          <div class="col-4" >
+            <label for="robustClassification" class="col-fixed" >{{'substance.robustClassification' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.robustClassification ? substance.robustClassification : '-'}}
+          </div>
+          <div class="col-4" >
+            <label for="averageClassification" class="col-fixed" >{{'substance.averageClassification' | translate}}</label>
+          </div>
+          <div class="col-8" >
+            {{substance.averageClassification ? substance.averageClassification : '-'}}
+          </div>
+        
+
+        <div class="col-4" >
+          <label for="P_score_conservative" class="col-fixed" >{{'substance.PScoreConservative' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.P_score_conservative ? substance.numericalData?.P_score_conservative : '-'}}
+        </div>
+        <div class="col-4" >
+          <label for="P_score_average" class="col-fixed" >{{'substance.PScoreAverage' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.P_score_average ? substance.numericalData?.P_score_average : '-'}}
+        </div>
+        <div class="col-4" >
+          <label for="P_score_robust" class="col-fixed" >{{'substance.PScoreRobust' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.P_score_robust ? substance.numericalData?.P_score_robust : '-'}}
+        </div>
+
+        <div class="col-4" >
+          <label for="M_score_conservative" class="col-fixed" >{{'substance.MScoreConservative' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.M_score_conservative ? substance.numericalData?.M_score_conservative : '-'}}
+        </div>
+        <div class="col-4" >
+          <label for="M_score_average" class="col-fixed" >{{'substance.MScoreAverage' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.M_score_average ? substance.numericalData?.M_score_average : '-'}}
+        </div>
+        <div class="col-4" >
+          <label for="M_score_robust" class="col-fixed" >{{'substance.MScoreRobust' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.M_score_robust ? substance.numericalData?.M_score_robust : '-'}}
+        </div>
+
+        <div class="col-4" >
+          <label for="T_score_predicted" class="col-fixed" >{{'substance.TScorePredicted' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.T_score_predicted ? substance.numericalData?.T_score_predicted : '-'}}
+        </div>
+        
+        <div class="col-4" >
+          <label for="T_score_predicted_rivm_average" class="col-fixed" >{{'substance.TScorePredictedRIVMAverage' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.T_score_predicted_rivm_average ? substance.numericalData?.T_score_predicted_rivm_average : '-'}}
+        </div>
+
+        <div class="col-4" >
+          <label for="T_score_predicted_rivm_conservative" class="col-fixed" >{{'substance.TScorePredictedRIVMConservative' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.numericalData?.T_score_predicted_rivm_conservative ? substance.numericalData?.T_score_predicted_rivm_conservative : '-'}}
+        </div>
+
+        <div class="col-4" >
+          <label for="tclass" class="col-fixed" >{{'substance.tclass' | translate}}</label>
+        </div>
+        <div class="col-8" >
+          {{substance.tclass ? (substance.tclass === 'T' ? 1 : substance.tclass) : '-'}}
+        </div>
+
+        
+      </div>
+
+
+      </p-accordionTab>
+  </p-accordion>
+
+
+  </div>
+
+</div>
+

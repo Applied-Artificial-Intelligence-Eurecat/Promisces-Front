@@ -1,0 +1,26 @@
+<div class="layout-wrapper" [ngClass]="{'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple,
+        'layout-static': isStatic(),
+        'layout-overlay': isOverlay(),
+        'layout-overlay-active': overlayMenuActive && isOverlay(),
+        'layout-horizontal': isHorizontal(),
+        'layout-static-active': !staticMenuDesktopInactive && isStatic(),
+        'layout-mobile-active': staticMenuMobileActive,
+        'layout-rtl': app.isRTL,
+        'layout-rightpanel-active': rightPanelActive}" [class]="'layout-menu-'+ app.menuTheme+ ' layout-topbar-'+ app.topbarTheme">
+
+    <app-topbar></app-topbar>
+
+    <div class="layout-main">
+
+        <div class="layout-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="">
+          <app-footer></app-footer>
+        </div>
+    </div>
+
+    <div *ngIf="staticMenuMobileActive" class="layout-mask modal-in"></div>
+
+</div>

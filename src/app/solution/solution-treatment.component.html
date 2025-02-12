@@ -1,0 +1,394 @@
+<div class="grid">
+  <div class="col-12 md-12">
+    <p>
+      <b>Treatment</b>
+    </p>
+  </div>
+
+  <div class="flex col-12 md:col-12 xl:col-12">
+    <p>
+      This page provides information for treating a chemically polluted source. This entails setting up an
+      efficient treatment for the recovery of a chemically polluted water, soil or sediment source and can
+      be based on the following questions: 1) What is the target media of your chemically polluted source?,
+      2) How can different treatment technologies be compared?, and 3) How can knowledge gaps on
+      substance removal, transport and fate be overcome to evaluate the effectivity of a treatment?
+    </p>
+  </div>
+
+
+  <div class="flex col-12 md:col-12 xl:col-12">
+    <p-listbox [options]="ceRoutesList" [(ngModel)]="ceRouteSelected" optionLabel="description"
+    (onChange)="onChangeCeRouteSelected($event.value);" [metaKeySelection]="false"></p-listbox>
+
+  </div>
+
+  <div class="flex col-12 md:col-12 xl:col-12">
+    <p-accordion><!-- 1) What is the target media of your chemically polluted source? -->
+      <!-- treatment - question 1-->
+      <p-accordionTab header="Question 1: Which treatment technology is available for your target media?">
+        <p>
+          In the table below, it is possible to select the target media of interest for this CE route. Once the
+          target media has been selected, all the available technologies are displayed. Details about each
+          technology can be downloaded from the zenodo repository by clicking the download icon in the last
+          column named “Factsheet”.
+        </p>
+
+          <p-table [value]="factsheetsFiltered" styleClass="p-datatable-striped"
+          [rowHover]="true"
+          [scrollable]="true" appendTo="body">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>{{ 'solution.targetMedia' | translate }}</th>
+                    <th>{{ 'solution.targetCompounds' | translate }}</th>
+                    <th>{{ 'solution.number' | translate }}</th>
+                    <th>{{ 'solution.technology' | translate }}</th>
+                    <th>{{ 'solution.trl' | translate }}</th>
+                    <th>{{ 'solution.category' | translate }}</th>
+                    <th>{{ 'solution.factsheet' | translate }}</th>
+                </tr>
+                <tr>
+                  <th>
+                      <p-columnFilter type="text" field="targetMedia" [showMenu]="true" matchMode="contains"></p-columnFilter>
+                  </th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-fact>
+              <ng-container *ngIf="fact.categories && fact.categories.length>0">
+                <tr >
+                  <td>{{ fact.targetMedia }}</td>
+                  <td>{{ fact.targetCompounds }}</td>
+                  <td>{{ fact.number }}</td>
+                  <td>
+                    <ng-container *ngFor="let tech of fact.technologies">
+                      {{ tech }}
+                    </ng-container>
+                  </td>
+                  <td></td>
+                  <td >
+                    <ng-container *ngFor="let categ of fact.categories">
+                      {{ categ }}
+                    </ng-container>
+                  </td>
+                  <td style="text-align: center;"><a target="_blank" [href]="fact.link"><i class="pi pi-download"></i></a></td>
+                </tr>
+              </ng-container>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7">{{ 'no-records-found' | translate }}</td>
+                </tr>
+            </ng-template>
+          </p-table>
+      </p-accordionTab>
+      <!-- treatment - question 2-->
+      <p-accordionTab header="Question 2: How can different treatment technologies be compared?">
+        <div class="grid">
+          <div class="col-12 md-12">
+            <p>
+              Selecting one or multiple treatment technologies to apply should depend on both the effectiveness
+              and sustainability (e.g. environmental impact, social aspects). Ideally, the decision for a specific
+              technology should be based on detailed exposure and risk assessments (see systematic solution Risk
+              Assessment) and a comparison of lifecycle assessments (LCA). However, these are often not available,
+              especially at an early technology readiness level (TRL). Four critical aspects are identified within the
+              PROMISCES project as key factors for assessing the effectivity of a treatment, namely remediation
+              yield, energy consumption, cost and environmental evaluation. These factors are often available at
+              lower TRL levels, and can be applied to compare technologies at a screening level. Because these
+              factors can change during the development of a technology, we advise comparing technologies of a
+              similar TRL. The statistics surrounding these four factors are displayed below for this CE route. More
+              details of the technologies are available in the factsheets (under question 1 of this systematic
+              solution).
+            </p>
+            <p>
+              The UPWATER project developed a generic framework to compare treatment technologies from an
+              economic, ecological and technical perspective as part of a multi-criteria decision. The evaluation
+              methods are outlined in
+              <a target="_blank" href="https://www.upwater.eu/wp-content/uploads/2024/10/D5.1.pdf">
+                DELIVERABLE D5.1 UPWATER Assessment Framework (2023).
+              </a>
+            </p>
+          </div>
+
+          <div class="col-6 md-6">
+            <div id="solutionTreatmentRemediationBoxChart" style="width:100%; min-height:40rem;"></div>
+          </div>
+          <div class="col-6 md-6">
+            <div id="solutionTreatmentCostBarChart" style="width:100%; min-height:40rem; text-align: center;"></div>
+          </div>
+          <div class="col-6 md-6">
+            <div id="solutionTreatmentEnergyBarChart" style="width:100%; min-height:40rem; text-align: center;"></div>
+          </div>
+          <div class="col-6 md-6"></div>
+        </div>
+
+      </p-accordionTab>
+      <!-- treatment - question 3-->
+      <p-accordionTab header="Question 3: How can knowledge gaps on substance removal, transport and fate be overcome
+      to evaluate the effectiveness of a treatment?">
+        <p>
+          Assessments of entire exposure routes are hard to conduct, due to missing information on substance
+          removal, transport and fate. To overcome these knowledge gaps and identify the most effective
+          treatment for a chemically polluted source, the PROMISCES project has developed a risk-based
+          human health exposure assessment (HHEA) model for the risk assessment of specific circular
+          economy (CE) routes. The model enables users to estimate the concentration of a particular
+          substance along a process chain. The model is probabilistic, which allows users to estimate exposure
+          and risk even when exact removal rates in a process are uncertain or unknown. An overview of the
+          HHEA model is available in <a target="_blank" href="https://zenodo.org/records/13141743">
+            zenodo repository
+          </a> (2024).
+          <br>
+          Disclaimer: The HHEA model covers the CE routes A, B, C and E. Thereby excluding CE route D titled
+          “Material recovery from dredged sediment for eco-materials”.
+        </p>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+
+
+    <ng-container *ngIf="ceRouteSelected!==null">
+      <!--<div class="grid flex">-->
+        <!--<div class="flex col-6 md:col-6 xl:col-6" (click)="solutionComponent.handleClickImg($event)" style="cursor: pointer;">
+          <img [src]="solutionComponent.imageSrc" style="width: 100%; display: block;"/>
+        </div>-->
+        <!--div class="flex col-6 md:col-6 xl:col-6"
+          style="padding-bottom: 56.25%; background-image: url('../assets/images/dsf_visualisation.png');background-size: 100%; background-repeat: no-repeat;">
+        </div-->
+        <div id="blockStep" class="flex col-12 md:col-12 xl:col-12" style="padding-top: 2.5rem;">
+          <div id="infoBlock" *ngIf="ceRouteSelected!==null" class="col-12 md:col-12">
+            <!-- ce route A -->
+            <span *ngIf="ceRouteSelected?.id=='1'">
+              <div class="grid">
+                <div class="col-12 md:col-12">
+                  <p style="text-align: justify;"><b>Route A</b> focuses on creating a semi-closed water cycle for drinking water supply. This approach aims to optimize water usage, minimize waste, and ensure the safety and sustainability of drinking water resources.</p>
+                </div>
+
+
+              </div>
+            </span>
+            <!-- ce route B -->
+            <span *ngIf="ceRouteSelected?.id=='2'">
+              <div class="grid">
+                <div class="col-12 md:col-12">
+                  <p style="text-align: justify;"><b>Route B</b> revolves around the reuse of treated wastewater for agricultural irrigation, contributing to water conservation and sustainable agriculture practices.</p>
+                </div>
+
+                <div class="col-12 md:col-12">
+                  <container-element [ngSwitch]="solutionComponent.blockIndexSelected">
+                    <div *ngSwitchCase="1">
+                      <p style="text-align: justify;">
+                        This section helps you determine if your activities might contribute to wastewater pollution. It provides insights into practices and technologies that can minimize pollutant release, focusing on sustainable agricultural and industrial processes. Implementing practices to reduce the contamination of wastewater at the source, including the use of environmentally friendly chemicals and reducing runoff from agricultural fields.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="2">
+                      <p style="text-align: justify;">
+                        Discover how to safely reuse treated wastewater in agriculture. This part covers effective monitoring and evaluation methods, including both targeted and non-targeted analysis, to ensure the quality and safety of reclaimed water for irrigation. Developing methods to safely use treated wastewater in agriculture, ensuring that it is free from harmful pathogens and chemicals that could affect crop health.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="3">
+                      <p style="text-align: justify;">
+                        This segment guides you through various wastewater treatment methods, showcasing successful case studies and detailing technologies that enhance water quality for agricultural use. It also provides access to models and tools for evaluating treatment processes. Focusing on advanced wastewater treatment techniques that make water safe and beneficial for agricultural use, including nutrient recovery which can enhance soil health.
+                      </p >
+                    </div>
+                    <div *ngSwitchCase="4">
+                      <p style="text-align: justify;">
+                        This area deals with the risk assessment of using treated wastewater in agriculture. It includes analysis from bioassays, QSAR models, and compares treated water quality with various guideline values, discussing the implications of their use in agricultural settings. Ensuring that the use of treated wastewater adheres to agricultural standards, safeguarding both crop quality and public health.
+                      </p>
+                    </div>
+                    <div *ngSwitchDefault>
+                    </div>
+                  </container-element>
+                </div>
+              </div>
+            </span>
+            <!-- ce route C -->
+            <span *ngIf="ceRouteSelected?.id=='3'">
+              <div class="grid">
+                <div class="col-12 md:col-12">
+                  <p style="text-align: justify;"><b>Route C</b> explores the potential of recovering nutrients and energy from treated sludge, turning waste into valuable fertilizers for agricultural use.</p>
+                </div>
+
+                <div class="col-12 md:col-12">
+                  <container-element [ngSwitch]="solutionComponent.blockIndexSelected">
+                    <div *ngSwitchCase="1">
+                      <p style="text-align: justify;">
+                        Identify if your activities could lead to sludge production and explore methods to reduce sludge generation or its environmental impact. This includes alternatives in waste management and treatment processes. Implementing waste management practices that reduce the generation of harmful sludge, promoting the use of environmentally sustainable processes in waste treatment facilities.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="2">
+                      <p style="text-align: justify;">
+                        Learn how to transform treated sludge into a resource. This section offers guidance on evaluating the quality of sludge for use as fertilizer, including techniques for nutrient analysis and assessing environmental safety. Identifying opportunities to use treated sludge as a resource, assessing its potential as a fertilizer and soil conditioner in agriculture.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="3">
+                      <p style="text-align: justify;">
+                        Focused on converting sludge into safe, usable fertilizers, this part provides information on advanced treatment technologies, showcasing innovative approaches and their effectiveness in nutrient recovery. Advanced processing methods are utilized to treat sludge, ensuring the safe extraction of nutrients and the elimination of harmful pathogens and chemicals.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="4">
+                      <p style="text-align: justify;">
+                        Assess the safety and viability of using sludge-derived fertilizers. It includes detailed risk assessments, bioassays results, and QSAR model analyses, helping you understand the implications of using these fertilizers in agriculture. Evaluating the safety and effectiveness of sludge-derived fertilizers, ensuring they meet agricultural standards and do not pose risks to soil health and crop production.
+                      </p>
+                    </div>
+                    <div *ngSwitchDefault>
+                    </div>
+                  </container-element>
+                </div>
+              </div>
+            </span>
+            <!-- ce route D -->
+            <span *ngIf="ceRouteSelected?.id=='4'">
+              <div class="grid">
+                <div class="col-12 md:col-12">
+                  <p style="text-align: justify;"><b>Route D</b> focuses on recovering materials from dredged sediment and transforming them into eco-friendly materials for various uses.</p>
+                </div>
+
+                <div class="col-12 md:col-12">
+                  <container-element [ngSwitch]="solutionComponent.blockIndexSelected">
+                    <div *ngSwitchCase="1">
+                      <p style="text-align: justify;">
+                        Determine if your operations could contribute to sediment pollution and explore ways to mitigate this impact. This includes best practices in dredging operations and sediment management. Strategies are put in place to minimize the contamination of sediments, ensuring that dredging operations do not adversely affect the environment.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="2">
+                      <p style="text-align: justify;">
+                        Understand how to safely repurpose dredged sediments. This section provides techniques for assessing sediment quality and the potential for recovering valuable materials for use in construction and other industries. Exploring ways to utilize contaminated dredged materials safely, including treatments that detoxify or stabilize harmful substances.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="3">
+                      <p style="text-align: justify;">
+                        Offers insights into treatments and processes that can transform dredged sediments into safe, useful materials. It includes examples of successful material recovery projects and links to resources for treatment methodologies. Implementing advanced treatment technologies to process dredged materials, making them safe and suitable for reuse in construction and other applications.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="4">
+                      <p style="text-align: justify;">
+                        Focuses on evaluating the environmental and health risks associated with using materials recovered from dredged sediments. This part includes hazard assessments, regulatory standards, and guidelines to ensure safe application. Conducting thorough assessments to ensure that recovered materials meet quality and safety standards, promoting their acceptance and use in various industries.
+                      </p>
+                    </div>
+                    <div *ngSwitchDefault>
+                    </div>
+                  </container-element>
+                </div>
+              </div>
+            </span>
+            <!-- ce route E -->
+            <span *ngIf="ceRouteSelected?.id=='5'">
+              <div class="grid">
+                <div class="col-12 md:col-12">
+                  <p style="text-align: justify;"><b>Route E</b> is dedicated to the remediation of groundwater and soil, crucial for protecting the water cycle and ensuring environmental sustainability.</p>
+                </div>
+
+                <div class="col-12 md:col-12">
+                  <container-element [ngSwitch]="solutionComponent.blockIndexSelected">
+                    <div *ngSwitchCase="1">
+                      <p style="text-align: justify;">
+                        Helps you identify if your activities might contaminate groundwater or soil and provides strategies for preventing or minimizing this impact. It covers best practices in industrial and agricultural operations to safeguard groundwater and soil health. Efforts are focused on preventing the contamination of soil and groundwater, including measures to control industrial discharge and agricultural runoff.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="2">
+                      <p style="text-align: justify;">
+                        Guides you in assessing the quality of contaminated groundwater or soil and explores ways to remediate and safely use these resources. It includes information on monitoring and testing methodologies. Strategies are developed for the safe use of contaminated groundwater and soil, including risk assessment and management approaches.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="3">
+                      <p style="text-align: justify;">
+                        This section details various remediation techniques for soil and groundwater, showcasing case studies and offering insights into effective cleanup technologies and processes.Emphasizing innovative remediation techniques to cleanse soil and groundwater, removing pollutants and restoring their natural state.
+                      </p>
+                    </div>
+                    <div *ngSwitchCase="4">
+                      <p style="text-align: justify;">
+                        Deals with the evaluation of remediated soil and groundwater for safe use. It provides information on hazard and risk assessments, including comparisons to environmental standards and health guidelines. Regular monitoring and rigorous testing are conducted to ensure that remediated soil and groundwater meet environmental safety standards, making them fit for use in various applications.
+                      </p>
+                    </div>
+                    <div *ngSwitchDefault>
+                    </div>
+                  </container-element>
+                </div>
+              </div>
+            </span>
+            <!-- For any selected route -->
+            <container-element [ngSwitch]="solutionComponent.blockIndexSelected">
+              <div *ngSwitchCase="1">
+                <p style="text-align: justify;">
+                  Explanation of and link to toolbox in silico models for chemical properties
+                </p>
+                <p style="text-align: justify;">
+                  Guidance in substitution
+                </p>
+                <p style="text-align: justify;">
+                  List of external databases with information on Substitution data.
+                </p>
+                <ul style="margin-top: 0;">
+                  <li>External database 1</li>
+                  <li>External database 2</li>
+                  <li>External database 3</li>
+                </ul>
+                <p style="text-align: justify;">
+                  <a href="javascript:void(0);" (click)="navigateToPMTAssessment();">
+                    {{ 'pmt-assessment.concernedAbout' | translate }}
+                  </a>
+                </p>
+                <p style="text-align: justify;">
+                  <a href="https://substitution.ineris.fr/en" target="_blank">
+                    {{ 'solution.substitutionPortal' | translate }}
+                  </a>
+                </p>
+              </div>
+              <div *ngSwitchCase="2">
+                {{ 'solution.deliverables' | translate }}:
+                <ul style="margin-top: 0;">
+                  <li>1.1: <em>{{ 'unavailable' | translate }}</em></li>
+                  <li>1.2: <em>{{ 'unavailable' | translate }}</em></li>
+                  <li>1.3: <em>{{ 'unavailable' | translate }}</em></li>
+                  <li>1.4: <em>{{ 'unavailable' | translate }}</em></li>
+                  <li>1.7: <em>{{ 'unavailable' | translate }}</em></li>
+                </ul>
+                <p style="text-align: justify;">
+                  Toolbox demonstrator of chemical fate and transport models
+                </p>
+                <p style="text-align: justify;">
+                  Explananation of different types of methodologies and lessons
+                </p>
+                <p style="text-align: justify;">
+                  For PFAS, include information
+                </p>
+                <p style="text-align: justify;">
+                  For PM(T) include information
+                </p>
+                <p style="text-align: justify;">
+                  In vitro bioassay approaches predicting relevant toxicological endpoints for PFAS/PM(T) chemicals
+                </p>
+                <p style="text-align: justify;">
+                  <a href="javascript:void(0);" (click)="navigateToPMTAssessment();">
+                    {{ 'pmt-assessment.title' | translate }}
+                  </a>
+                </p>
+              </div>
+              <div *ngSwitchCase="3">
+                Models:
+                <ul style="margin-top: 0">
+                  <li>KWB HHEA model: <em>{{ 'unavailable' | translate }}</em></li>
+                  <li>Additional information on treatment steps developed in PROMISCES: <em>{{ 'unavailable' | translate }}</em></li>
+                </ul>
+                Best available techniques:
+                <ul style="margin-top: 0">
+                  <li>Empty List</li>
+                  <li>Empty List</li>
+                </ul>
+              </div>
+              <div *ngSwitchDefault>
+              </div>
+            </container-element>
+        </div>
+
+      </div>
+
+      <!--</div>-->
+    </ng-container>
+</div>
+
+

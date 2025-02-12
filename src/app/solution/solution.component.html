@@ -1,0 +1,74 @@
+<div class="grid" >
+
+  <div class="col-12 md:col-12 xl:col-12">
+    <span class="title-page">{{ 'solution.title' | translate }}</span>
+  </div>
+  <div class="col-12 md:col-12 xl:col-12">
+    <div class="description-page">
+      <p>
+        Focusing on the assessment of substances and finding substances related to five different routes:
+      </p>
+    </div>
+  </div>
+
+  <div class="col-12 md:col-12 xl:col-12 p-text-justify">
+  <div >
+    <div style="cursor: pointer;">
+      <img id="solutionImage" [src]="imageSrc" (click)="handleClickImg($event)"/>
+    </div>
+<div>
+
+</div>
+<p style="text-align: justify;">
+  <a target="_blank" href="https://www.researchgate.net/publication/359101469_Getting_in_control_of_persistent_mobile_and_toxic_PMT_and_very_persistent_and_very_mobile_vPvM_substances_to_protect_water_resources_strategies_from_diverse_perspectives">
+    Hale et al. (2022)</a> defined ways to manage PM(T) substances based on the toxic free hierarchy presented in the "Chemicals Strategy for Sustainability Towards a Toxic Free Environment".
+  Whenever possible, PM(T) substances should be prevented from entering the soil-sediment-water system. Refraining from using PM(T) substances in production processes and products is the most
+  efficient way of preventing environmental and human health risks due to these substances. Even though prevention is preferable, it is not always possible and solutions
+  for the identification through monitoring, risk assessment and treatment of PM(T) substances in the soil-sediment-water system are still required, especially in light of the
+  PM(T) substances currently being used and already present in the environment. Based on this publication, we distinguish four systematic solutions in the DSF, namely
+  prevention, monitoring, risk assessment and treatment.
+  The systematic solution prevention provides different measures that can be implemented to prevent the release of persistent, mobile and potentially toxic substances into the environment. The
+  systematic solution monitoring gives information for diagnosing the condition of a potentially chemically polluted source. The systematic solution risk assessment can be applied when a
+  potentially contaminated source has been confirmed to determine risk to humans and the environment. In addition it can also be used to evaluate the effectiveness of a treatment process or
+  a prevention measure. Prevention measures are rarely 100% efficient. The systematic solution treatment provides remediation options for a confirmed polluted source.
+  <br><b><i>Each solution type is clickable.</i></b> The halo surrounding the four main solutions represents the boundary conditions for the implementation of these solutions related
+  to governance, financial support and/or social perspectives. <b><i>This halo is also clickable</i></b> and redirects to the <a [routerLink]="['/strategy']">"co-created zero pollution
+  strategies for the risk management of PM(T) substances"</a> module (PROMISCES, 2025a) of the DSF. It should be noted that the systematic solutions "Prevention", "Monitoring" and "Risk Assessment" are
+  the same for each circular economy (CE) route. The systematic solution “Treatment” differentiates between the CE routes. This means that for the systematic solution “Treatment”, it is necessary to
+  first choose one of the five CE routes before being directed to treatment options.
+</p>
+  </div>
+</div>
+  <span>
+    <button type="button" pButton icon="pi pi-arrow-down" (click)="scrollTo('modules');"
+      class="fullscreen-button p-scrolltop custom-scrolldown" [@fade]="state"
+      (@fade.done)="state && state=!state"></button>
+  </span>
+
+  <div id="modules" class="col-12 md:col-12">
+    <container-element [ngSwitch]="blockIndexSelected">
+      <!-- prevention -->
+      <div *ngSwitchCase="1">
+        <app-solution-prevention ></app-solution-prevention>
+      </div>
+      <!--Monitoring  section-->
+      <div *ngSwitchCase="2">
+        <app-solution-monitoring ></app-solution-monitoring>
+      </div>
+      <!--Risk assessment section-->
+      <div *ngSwitchCase="3">
+        <app-solution-risk></app-solution-risk>
+      </div>
+      <!--Treatment section-->
+      <div *ngSwitchCase="4">
+        <app-solution-treatment></app-solution-treatment>
+      </div>
+      <div *ngSwitchDefault>
+      </div>
+    </container-element>
+  </div>
+
+
+
+    <p-scrollTop styleClass="custom-scrolltop" [threshold]="400" icon="pi pi-arrow-up"></p-scrollTop>
+</div>
